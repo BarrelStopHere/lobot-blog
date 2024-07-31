@@ -3,7 +3,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>top.lobot</groupId>
-    <artifactId>lobot_blog</artifactId>
+    <artifactId>lobot-blog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>lobot_blog</name>
@@ -52,7 +52,17 @@
 
 
     <modules>
-
+        <module>utils</module>
+        <module>base</module>
+        <module>common</module>
+        <module>web</module>
+        <module>gateway</module>
+        <module>monitor</module>
+        <module>picture</module>
+        <module>search</module>
+        <module>sms</module>
+        <module>spider</module>
+        <module>xo</module>
     </modules>
 
     <dependencyManagement>

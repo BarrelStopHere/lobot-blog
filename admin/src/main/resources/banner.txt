@@ -1,0 +1,13 @@
+${AnsiColor.GREEN}
+ _       _           _   _     _
+| |     | |         | | | |   | |
+| | ___ | |__   ___ | |_| |__ | | ___   __ _
+| |/ _ \| '_ \ / _ \| __| '_ \| |/ _ \ / _` |
+| | (_) | |_) | (_) | |_| |_) | | (_) | (_| |
+|_|\___/|_.__/ \___/ \__|_.__/|_|\___/ \__, |
+                                        __/ |
+                                       |___/
+${AnsiColor.YELLOW}
+Gitee: https://gitee.com/yangkairui/lobot-blog
+Github: https://github.com/BarrelStopHere/lobot-blog
+${AnsiColor.BRIGHT_BLACK}
