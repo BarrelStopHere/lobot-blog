@@ -1,5 +1,6 @@
 package top.lobot.xo.entity.user;
 
+import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -23,34 +24,135 @@ import java.util.List;
 @TableName("user")
 public class User extends BaseEntity<User> {
     private static final long serialVersionUID = 7850722315180876426L;
-    private Integer id;
-    private String name;
+    /**
+     * 用户名
+     */
+    private String userName;
+
+    /**
+     * 密码
+     */
+    private String passWord;
+
+    /**
+     * 昵称
+     */
     private String nickName;
-    private String mobile;
-    private String email;
-    private Integer roleId;
-    private String password;
-    private String status;
-    private String sex;
+
+    /**
+     * 性别(1:男2:女)
+     */
+    private String gender;
+
+    /**
+     * 个人头像(UID)
+     */
+    @TableField(updateStrategy = FieldStrategy.IGNORED)
     private String avatar;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
+     * 出生年月日
+     */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
-    private String qq;
-    private String wechat;
-    private String gitee;
-    private String github;
-    /** 职业 */
+
+    /**
+     * 手机
+     */
+    @TableField(updateStrategy = FieldStrategy.IGNORED)
+    private String mobile;
+
+    /**
+     * QQ号
+     */
+    @TableField(updateStrategy = FieldStrategy.IGNORED)
+    private String qqNumber;
+
+    /**
+     * 微信号
+     */
+    @TableField(updateStrategy = FieldStrategy.IGNORED)
+    private String weChat;
+
+    /**
+     * 职业
+     */
+    @TableField(updateStrategy = FieldStrategy.IGNORED)
     private String occupation;
-    private String description;
-    /** 简历(md) */
-    private String personResume;
-    private Integer loginTimes;
+
+    /**
+     * 自我简介最多150字
+     */
+    @TableField(updateStrategy = FieldStrategy.IGNORED)
+    private String summary;
+
+    /**
+     * 登录次数
+     */
+    private Integer loginCount;
+
+    /**
+     * 验证码
+     */
+    private String validCode;
+
+    /**
+     * 资料来源
+     */
+    private String source;
+
+    /**
+     * 平台uuid
+     */
+    private String uuid;
+
+    /**
+     * 最后登录时间
+     */
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date lastLoginTime;
-    /** 上次登录ip */
+
+    /**
+     * 最后登录IP
+     */
     private String lastLoginIp;
+
+    /**
+     * 评论状态，0 禁言， 1 正常
+     */
+    private Integer commentStatus;
+
+    /**
+     * 开启邮件通知：  0：关闭， 1：开启
+     */
+    private Integer startEmailNotification;
+
+    /**
+     * 操作系统
+     */
+    private String os;
+
+    /**
+     * 浏览器
+     */
+    private String browser;
+
+    /**
+     * ip来源
+     */
+    private String ipSource;
+
+    /**
+     * 用户标签  0：普通，1：管理员，2：博主
+     */
+    private Integer userTag;
 
     // 以下字段不存入数据库
 
@@ -58,41 +160,6 @@ public class User extends BaseEntity<User> {
      * 用户头像
      */
     @TableField(exist = false)
-    private List<String> photoList;
+    private String photoUrl;
 
-    /**
-     * 所拥有的角色名
-     */
-    @TableField(exist = false)
-    private List<String> roleNames;
-
-    /**
-     * 所拥有的角色名
-     */
-    @TableField(exist = false)
-    private Role role;
-
-    /**
-     * 验证码
-     */
-    @TableField(exist = false)
-    private String validCode;
-
-    /**
-     * 已用网盘容量
-     */
-    @TableField(exist = false)
-    private Long storageSize;
-
-    /**
-     * 最大网盘容量
-     */
-    @TableField(exist = false)
-    private Long maxStorageSize;
-
-    /**
-     * 令牌UID【主要用于换取token令牌，防止token直接暴露到在线用户管理中】
-     */
-    @TableField(exist = false)
-    private String tokenUid;
 }

@@ -1,6 +1,6 @@
 package top.lobot.admin.config;
 
-import com.moxi.mougblog.base.handler.HandlerExceptionResolver;
+import top.lobot.base.handler.HandlerExceptionResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

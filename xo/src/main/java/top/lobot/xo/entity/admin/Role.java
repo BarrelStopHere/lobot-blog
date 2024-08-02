@@ -1,6 +1,8 @@
 package top.lobot.xo.entity.admin;
 
 
+import com.baomidou.mybatisplus.annotation.FieldStrategy;
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import top.lobot.base.entity.BaseEntity;
@@ -15,8 +17,20 @@ import top.lobot.base.entity.BaseEntity;
 @Data
 public class Role extends BaseEntity<Role> {
     private static final long serialVersionUID = -2829707122385003024L;
-    private String name;
-    private String description;
-    /** 可操作的菜单/按钮  Json数组 */
-    private String categoryMenuIds;
+    /**
+     * 角色名称
+     */
+    private String roleName;
+
+    /**
+     * 介绍
+     */
+    @TableField(updateStrategy = FieldStrategy.IGNORED)
+    private String summary;
+
+    /**
+     * 该角色所能管辖的区域
+     */
+    @TableField(updateStrategy = FieldStrategy.IGNORED)
+    private String categoryMenuUids;
 }

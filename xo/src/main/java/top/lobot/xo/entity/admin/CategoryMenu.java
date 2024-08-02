@@ -43,9 +43,9 @@ public class CategoryMenu extends BaseEntity<CategoryMenu> implements Comparable
     private String icon;
 
     /**
-     * 父ID
+     * 父UID
      */
-    private String parentId;
+    private String parentUid;
 
     /**
      * URL地址

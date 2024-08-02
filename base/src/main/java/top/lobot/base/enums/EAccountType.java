@@ -10,32 +10,32 @@ public enum EAccountType {
     /**
      * 邮箱
      */
-    EMAIL("EMAIL", "邮箱"),
+    EMail("1", "邮箱"),
 
     /**
      * QQ号
      */
-    QQ("QQ", "QQ号"),
+    QQNumber("2", "QQ号"),
 
     /**
      * QQ群
      */
-    QQ_GROUP("QQG", "QQ群"),
+    QQGroup("3", "QQ群"),
 
     /**
      * Github
      */
-    GITHUB("GITHUB", "Github"),
+    Github("4", "Github"),
 
     /**
      * Gitee
      */
-    GITEE("GITEE", "Gitee"),
+    Gitee("5", "Gitee"),
 
     /**
      * 微信
      */
-    WECHAT("WECHAT", "微信");
+    WeChat("6", "微信");
 
 
     private final String code;

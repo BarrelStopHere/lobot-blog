@@ -67,4 +67,8 @@ public class ResponseResult<T> {
         this.message = message;
         this.data = data;
     }
+
+    public boolean isSuccess() {
+        return ResultCode.SUCCESS.getCode() == this.code;
+    }
 }

@@ -22,7 +22,7 @@
 
     <dependencies>
         <dependency>
-            <artifactId>common</artifactId>
+            <artifactId>base</artifactId>
             <groupId>top.lobot</groupId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

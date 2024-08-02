@@ -20,7 +20,7 @@ public class StringUtils {
 
     private final static int NUM_32 = 32;
     //集群号
-    private static int machineId = 1;
+    private static final int machineId = 1;
     private static final Pattern CAMLE_PATTERN = Pattern.compile("_(\\w)");
     private static final Pattern UNDER_LINE_PATTERN = Pattern.compile("[A-Z]");
 
