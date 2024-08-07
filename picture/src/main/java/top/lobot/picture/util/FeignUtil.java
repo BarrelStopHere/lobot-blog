@@ -1,8 +1,8 @@
 package top.lobot.picture.util;
 
-import top.lobot.commons.entity.SystemConfig;
-import top.lobot.commons.feign.AdminFeignClient;
-import top.lobot.commons.feign.WebFeignClient;
+import top.lobot.xo.entity.SystemConfig;
+import top.lobot.base.feign.AdminFeignClient;
+import top.lobot.base.feign.WebFeignClient;
 import top.lobot.picture.global.MessageConf;
 import top.lobot.picture.global.RedisConf;
 import top.lobot.picture.global.SysConf;
@@ -25,10 +25,9 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Feign操作工具类
  *
- * @author: 陌溪
- * @create: 2020-02-29-15:39
+ * @author ykr
+ * @date 2024/8/7
  */
 @Slf4j
 @Component

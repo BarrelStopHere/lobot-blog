@@ -1,14 +1,9 @@
 package top.lobot.xo.service;
 
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import top.lobot.base.response.ResponseResult;
 import top.lobot.base.service.SuperService;
-import top.lobot.xo.entity.OnlineAdmin;
-import top.lobot.xo.entity.admin.Admin;
-import top.lobot.xo.entity.user.User;
+import top.lobot.xo.entity.Admin;
 import top.lobot.xo.vo.AdminVO;
-import top.lobot.xo.vo.UserVO;
 
 import java.util.List;
 

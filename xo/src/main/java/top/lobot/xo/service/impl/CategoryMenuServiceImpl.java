@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import top.lobot.base.conf.Constants;
-import top.lobot.xo.entity.admin.CategoryMenu;
+import top.lobot.xo.entity.CategoryMenu;
 import top.lobot.utils.RedisUtil;
 import top.lobot.utils.ResultUtil;
 import top.lobot.utils.StringUtils;

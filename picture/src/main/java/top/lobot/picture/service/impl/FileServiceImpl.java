@@ -1,9 +1,9 @@
 package top.lobot.picture.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import top.lobot.commons.entity.File;
-import top.lobot.commons.entity.FileSort;
-import top.lobot.commons.entity.SystemConfig;
+import top.lobot.xo.entity.File;
+import top.lobot.xo.entity.FileSort;
+import top.lobot.xo.entity.SystemConfig;
 import top.lobot.picture.global.MessageConf;
 import top.lobot.picture.global.SQLConf;
 import top.lobot.picture.global.SysConf;
@@ -34,10 +34,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 /**
- * 文件服务实现类【上传需调用本地文件服务、七牛云文件服务、Minio文件服务】
  *
- * @author 陌溪
- * @since 2018-09-17
+ * @author ykr
+ * @date 2024/8/7
  */
 @Slf4j
 @Service
@@ -98,11 +97,11 @@ public class FileServiceImpl extends SuperServiceImpl<FileMapper, File> implemen
         } else {
             List<Map<String, Object>> list = new ArrayList<>();
             List<String> changeStringToString = StringUtils.changeStringToString(fileIds, code);
-            QueryWrapper<com.moxi.mogublog.commons.entity.File> queryWrapper = new QueryWrapper<>();
+            QueryWrapper<top.lobot.xo.entity.File> queryWrapper = new QueryWrapper<>();
             queryWrapper.in(SQLConf.UID, changeStringToString);
-            List<com.moxi.mogublog.commons.entity.File> fileList = fileService.list(queryWrapper);
+            List<top.lobot.xo.entity.File> fileList = fileService.list(queryWrapper);
             if (fileList.size() > 0) {
-                for (com.moxi.mogublog.commons.entity.File file : fileList) {
+                for (top.lobot.xo.entity.File file : fileList) {
                     if (file != null) {
                         Map<String, Object> remap = new HashMap<>();
                         // 获取七牛云地址
@@ -293,7 +292,7 @@ public class FileServiceImpl extends SuperServiceImpl<FileMapper, File> implemen
         } else {
             throw new InsertException(ErrorCode.INSERT_DEFAULT_ERROR, "文件不被允许上传, 请填写文件分类信息");
         }
-        List<com.moxi.mogublog.commons.entity.File> lists = new ArrayList<>();
+        List<top.lobot.xo.entity.File> lists = new ArrayList<>();
         //文件上传
         if (urlList != null && urlList.size() > 0) {
             for (String itemUrl : urlList) {
@@ -315,7 +314,7 @@ public class FileServiceImpl extends SuperServiceImpl<FileMapper, File> implemen
                 if (EOpenStatus.OPEN.equals(systemConfig.getUploadQiNiu())) {
                     qiNiuUrl = qiniuService.uploadPictureByUrl(itemUrl, systemConfig);
                 }
-                com.moxi.mogublog.commons.entity.File file = new com.moxi.mogublog.commons.entity.File();
+                top.lobot.xo.entity.File file = new top.lobot.xo.entity.File();
                 file.setCreateTime(new Date(System.currentTimeMillis()));
                 file.setFileSortUid(fileSort.getUid());
                 file.setFileOldName(itemUrl);

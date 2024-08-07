@@ -2,7 +2,7 @@ package top.lobot.xo.mapper.admin;
 
 
 import top.lobot.base.mapper.SuperMapper;
-import top.lobot.xo.entity.admin.CategoryMenu;
+import top.lobot.xo.entity.CategoryMenu;
 
 /**
  *

@@ -1,7 +1,14 @@
 package top.lobot.picture.restapi;
 
 import com.alibaba.fastjson.JSON;
-import top.lobot.commons.entity.NetworkDisk;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import top.lobot.base.holder.RequestHolder;
 import top.lobot.picture.entity.TreeNode;
 import top.lobot.picture.global.MessageConf;
 import top.lobot.picture.global.SysConf;
@@ -12,23 +19,15 @@ import top.lobot.utils.ResultUtil;
 import top.lobot.utils.upload.FileOperation;
 import top.lobot.utils.upload.FileUtil;
 import top.lobot.utils.upload.PathUtil;
-import top.lobot.base.holder.RequestHolder;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import top.lobot.xo.entity.NetworkDisk;
 
 import java.io.File;
 import java.util.*;
 
 /**
- * 网盘管理RestApi
  *
- * @author 陌溪
- * @date 2020年10月8日08:38:33
+ * @author ykr
+ * @date 2024/8/7
  */
 @RestController
 @RequestMapping("/networkDisk")

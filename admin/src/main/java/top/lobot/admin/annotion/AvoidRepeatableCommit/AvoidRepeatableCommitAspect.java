@@ -36,7 +36,7 @@ public class AvoidRepeatableCommitAspect {
     /**
      * @param point
      */
-    @Around("@annotation(com.moxi.mogublog.admin.annotion.AvoidRepeatableCommit.AvoidRepeatableCommit)")
+    @Around("@annotation(top.lobot.admin.annotion.AvoidRepeatableCommit.AvoidRepeatableCommit)")
     public Object around(ProceedingJoinPoint point) throws Throwable {
 
         HttpServletRequest request = RequestHolder.getRequest();

@@ -1,4 +1,4 @@
-package top.lobot.xo.entity.user;
+package top.lobot.xo.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -8,10 +8,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 import top.lobot.base.entity.BaseEntity;
-import top.lobot.xo.entity.admin.Role;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * 用户

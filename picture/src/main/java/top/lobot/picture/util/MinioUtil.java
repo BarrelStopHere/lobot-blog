@@ -1,6 +1,6 @@
 package top.lobot.picture.util;
 
-import top.lobot.commons.entity.SystemConfig;
+import top.lobot.xo.entity.SystemConfig;
 import top.lobot.picture.global.MessageConf;
 import top.lobot.utils.FileUtils;
 import top.lobot.utils.ResultUtil;
@@ -21,10 +21,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 本地对象存储服务 Minio上传工具类
  *
- * @author: 陌溪
- * @create: 2020-10-19-10:22
+ * @author ykr
+ * @date 2024/8/7
  */
 @Component
 @Slf4j

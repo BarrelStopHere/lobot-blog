@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 import top.lobot.xo.conf.SysConf;
-import top.lobot.xo.entity.user.User;
+import top.lobot.xo.entity.User;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -24,7 +24,7 @@ import java.util.TimeZone;
 @EnableDiscoveryClient
 @EnableCaching
 @EnableRabbit
-@EnableFeignClients("top.lobot.common.feign")
+@EnableFeignClients("top.lobot.base.feign")
 @ComponentScan(basePackages = {
         "top.lobot.utils",
         "top.lobot.admin",

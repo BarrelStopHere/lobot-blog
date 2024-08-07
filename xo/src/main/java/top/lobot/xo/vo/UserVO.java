@@ -6,10 +6,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 import top.lobot.base.vo.BaseVO;
-import top.lobot.xo.entity.admin.Role;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  *

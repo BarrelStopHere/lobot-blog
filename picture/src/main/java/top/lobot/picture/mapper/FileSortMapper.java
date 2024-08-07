@@ -1,13 +1,12 @@
 package top.lobot.picture.mapper;
 
-import top.lobot.commons.entity.FileSort;
+import top.lobot.xo.entity.FileSort;
 import top.lobot.base.mapper.SuperMapper;
 
 /**
- * Mapper 接口
  *
- * @author 陌溪
- * @since 2018-09-17
+ * @author ykr
+ * @date 2024/8/7
  */
 public interface FileSortMapper extends SuperMapper<FileSort> {
 

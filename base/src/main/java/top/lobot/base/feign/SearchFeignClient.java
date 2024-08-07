@@ -3,9 +3,8 @@ package top.lobot.base.feign;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import top.lobot.base.conf.ig.feign.FeignConfiguration;
+import top.lobot.base.config.feign.FeignConfiguration;
 import top.lobot.base.fallback.SearchFeignFallback;
-import top.lobot.base.response.ResponseResult;
 
 /**
  * 搜索微服务
@@ -23,7 +22,7 @@ public interface SearchFeignClient {
      * @return
      */
     @PostMapping("/search/deleteElasticSearchByUid")
-    ResponseResult deleteElasticSearchByUid(@RequestParam(required = true, value = "uid") String uid);
+    String deleteElasticSearchByUid(@RequestParam(required = true, value = "uid") String uid);
 
     /**
      * 通过uids删除ElasticSearch博客索引
@@ -32,7 +31,7 @@ public interface SearchFeignClient {
      * @return
      */
     @PostMapping("/search/deleteElasticSearchByUids")
-    ResponseResult deleteElasticSearchByUids(@RequestParam(value = "uids", required = true) String uids);
+    String deleteElasticSearchByUids(@RequestParam(value = "uids", required = true) String uids);
 
     /**
      * 初始化ElasticSearch索引
@@ -40,7 +39,7 @@ public interface SearchFeignClient {
      * @return
      */
     @PostMapping("/search/initElasticSearchIndex")
-    ResponseResult initElasticSearchIndex();
+    String initElasticSearchIndex();
 
     /**
      * 通过uid来增加ElasticSearch索引
@@ -48,7 +47,7 @@ public interface SearchFeignClient {
      * @return
      */
     @PostMapping("/search/addElasticSearchIndexByUid")
-    ResponseResult addElasticSearchIndexByUid(@RequestParam(value = "uid", required = true) String uid);
+    String addElasticSearchIndexByUid(@RequestParam(value = "uid", required = true) String uid);
 
 
     /**
@@ -58,7 +57,7 @@ public interface SearchFeignClient {
      * @return
      */
     @PostMapping("/search/deleteSolrIndexByUid")
-    ResponseResult deleteSolrIndexByUid(@RequestParam(value = "uid", required = true) String uid);
+    String deleteSolrIndexByUid(@RequestParam(value = "uid", required = true) String uid);
 
     /**
      * 通过uids删除Solr博客索引
@@ -67,7 +66,7 @@ public interface SearchFeignClient {
      * @return
      */
     @PostMapping("/search/deleteSolrIndexByUids")
-    ResponseResult deleteSolrIndexByUids(@RequestParam(value = "uids", required = true) String uids);
+    String deleteSolrIndexByUids(@RequestParam(value = "uids", required = true) String uids);
 
     /**
      * 初始化Solr索引
@@ -75,7 +74,7 @@ public interface SearchFeignClient {
      * @return
      */
     @PostMapping("/search/initSolrIndex")
-    ResponseResult initSolrIndex();
+    String initSolrIndex();
 
     /**
      * 通过uid来增加Solr索引
@@ -83,7 +82,7 @@ public interface SearchFeignClient {
      * @return
      */
     @PostMapping("/search/addSolrIndexByUid")
-    ResponseResult addSolrIndexByUid(@RequestParam(value = "uid", required = true) String uid);
+    String addSolrIndexByUid(@RequestParam(value = "uid", required = true) String uid);
 
     /**
      * 通过uid来更新Solr索引
@@ -91,6 +90,6 @@ public interface SearchFeignClient {
      * @return
      */
     @PostMapping("/search/updateSolrIndexByUid")
-    ResponseResult updateSolrIndexByUid(@RequestParam(value = "uid", required = true) String uid);
+    String updateSolrIndexByUid(@RequestParam(value = "uid", required = true) String uid);
 
 }

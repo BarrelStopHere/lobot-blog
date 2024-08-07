@@ -1,7 +1,7 @@
 package top.lobot.picture.restapi;
 
-import top.lobot.commons.entity.NetworkDisk;
-import top.lobot.commons.entity.Storage;
+import top.lobot.xo.entity.NetworkDisk;
+import top.lobot.xo.entity.Storage;
 import top.lobot.picture.service.StorageService;
 import top.lobot.utils.FileUtils;
 import top.lobot.utils.ResultUtil;
@@ -17,10 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * 存储控制类
  *
- * @author 陌溪
- * @date 2020年7月11日21:23:14
+ * @author ykr
+ * @date 2024/8/7
  */
 @RestController
 @RequestMapping("/storage")

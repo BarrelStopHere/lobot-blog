@@ -1,6 +1,6 @@
 package top.lobot.xo.service;
 
-import top.lobot.xo.entity.admin.CategoryMenu;
+import top.lobot.xo.entity.CategoryMenu;
 import top.lobot.xo.vo.CategoryMenuVO;
 import top.lobot.base.service.SuperService;
 

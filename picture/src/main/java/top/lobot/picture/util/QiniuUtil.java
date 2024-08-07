@@ -3,7 +3,7 @@ package top.lobot.picture.util;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ArrayUtil;
 import com.google.gson.Gson;
-import top.lobot.commons.entity.SystemConfig;
+import top.lobot.xo.entity.SystemConfig;
 import top.lobot.picture.global.MessageConf;
 import top.lobot.picture.global.SysConf;
 import top.lobot.utils.StringUtils;
@@ -35,11 +35,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 七牛云工具类
  *
- * @author 陌溪
- * @date 2020年1月20日20:02:36
- * @comments: 七牛云图片配置
+ * @author ykr
+ * @date 2024/8/7
  */
 @Slf4j
 @Component

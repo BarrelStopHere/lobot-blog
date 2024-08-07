@@ -1,7 +1,7 @@
 package top.lobot.xo.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import top.lobot.xo.entity.user.User;
+import top.lobot.xo.entity.User;
 import top.lobot.xo.vo.UserVO;
 import top.lobot.base.service.SuperService;
 

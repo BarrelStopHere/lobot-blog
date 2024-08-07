@@ -1,8 +1,8 @@
 package top.lobot.picture.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import top.lobot.commons.entity.NetworkDisk;
-import top.lobot.commons.entity.Storage;
+import top.lobot.xo.entity.NetworkDisk;
+import top.lobot.xo.entity.Storage;
 import top.lobot.picture.global.SQLConf;
 import top.lobot.picture.global.SysConf;
 import top.lobot.picture.mapper.NetworkDiskMapper;
@@ -34,10 +34,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 文件服务实现类
  *
- * @author
- * @since 2018-09-17
+ * @author ykr
+ * @date 2024/8/7
  */
 @Slf4j
 @RefreshScope

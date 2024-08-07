@@ -5,7 +5,7 @@ import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
 import top.lobot.admin.global.RedisConf;
 import top.lobot.admin.global.SysConf;
-import top.lobot.commons.config.security.SecurityUser;
+import top.lobot.base.config.security.SecurityUser;
 import top.lobot.xo.entity.SysLog;
 import top.lobot.utils.IpUtils;
 import top.lobot.utils.RedisUtil;

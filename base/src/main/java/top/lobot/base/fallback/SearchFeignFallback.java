@@ -3,7 +3,7 @@ package top.lobot.base.fallback;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import top.lobot.base.feign.SearchFeignClient;
-import top.lobot.base.response.ResponseResult;
+import top.lobot.utils.ResultUtil;
 
 /**
  * 搜索服务降级兜底方法【当服务不可用时会触发】
@@ -16,56 +16,56 @@ import top.lobot.base.response.ResponseResult;
 public class SearchFeignFallback implements SearchFeignClient {
 
     @Override
-    public ResponseResult deleteElasticSearchByUid(String uid) {
+    public String deleteElasticSearchByUid(String uid) {
         log.error("搜索服务出现异常, 服务降级返回, 删除ElasticSearch索引失败");
-        return ResponseResult.fail("搜索服务出现异常, 服务降级返回, 删除ElasticSearch索引失败");
+        return ResultUtil.errorWithMessage("搜索服务出现异常, 服务降级返回, 删除ElasticSearch索引失败");
     }
 
     @Override
-    public ResponseResult deleteElasticSearchByUids(String uids) {
+    public String deleteElasticSearchByUids(String uids) {
         log.error("搜索服务出现异常, 服务降级返回, 批量删除ElasticSearch索引失败");
-        return ResponseResult.fail("搜索服务出现异常, 服务降级返回, 批量删除ElasticSearch索引失败");
+        return ResultUtil.errorWithMessage("搜索服务出现异常, 服务降级返回, 批量删除ElasticSearch索引失败");
     }
 
     @Override
-    public ResponseResult initElasticSearchIndex() {
+    public String initElasticSearchIndex() {
         log.error("搜索服务出现异常, 服务降级返回, 初始化ElasticSearch索引失败");
-        return ResponseResult.fail("搜索服务出现异常, 服务降级返回, 初始化ElasticSearch索引失败");
+        return ResultUtil.errorWithMessage("搜索服务出现异常, 服务降级返回, 初始化ElasticSearch索引失败");
     }
 
     @Override
-    public ResponseResult addElasticSearchIndexByUid(String uid) {
+    public String addElasticSearchIndexByUid(String uid) {
         log.error("搜索服务出现异常, 服务降级返回, 添加ElasticSearch索引失败");
-        return ResponseResult.fail("搜索服务出现异常, 服务降级返回, 添加ElasticSearch索引失败");
+        return ResultUtil.errorWithMessage("搜索服务出现异常, 服务降级返回, 添加ElasticSearch索引失败");
     }
 
     @Override
-    public ResponseResult deleteSolrIndexByUid(String uid) {
+    public String deleteSolrIndexByUid(String uid) {
         log.error("搜索服务出现异常, 服务降级返回, 删除Solr索引失败");
-        return ResponseResult.fail("搜索服务出现异常, 服务降级返回, 删除Solr索引失败");
+        return ResultUtil.errorWithMessage("搜索服务出现异常, 服务降级返回, 删除Solr索引失败");
     }
 
     @Override
-    public ResponseResult deleteSolrIndexByUids(String uids) {
+    public String deleteSolrIndexByUids(String uids) {
         log.error("搜索服务出现异常, 服务降级返回, 删除Solr索引失败");
-        return ResponseResult.fail("搜索服务出现异常, 服务降级返回, 批量删除Solr索引失败");
+        return ResultUtil.errorWithMessage("搜索服务出现异常, 服务降级返回, 批量删除Solr索引失败");
     }
 
     @Override
-    public ResponseResult initSolrIndex() {
+    public String initSolrIndex() {
         log.error("搜索服务出现异常, 服务降级返回, 初始化Solr索引失败");
-        return ResponseResult.fail("搜索服务出现异常, 服务降级返回, 初始化Solr索引失败");
+        return ResultUtil.errorWithMessage("搜索服务出现异常, 服务降级返回, 初始化Solr索引失败");
     }
 
     @Override
-    public ResponseResult addSolrIndexByUid(String uid) {
+    public String addSolrIndexByUid(String uid) {
         log.error("搜索服务出现异常, 服务降级返回, 添加Solr索引失败");
-        return ResponseResult.fail("搜索服务出现异常, 服务降级返回, 添加Solr索引失败");
+        return ResultUtil.errorWithMessage("搜索服务出现异常, 服务降级返回, 添加Solr索引失败");
     }
 
     @Override
-    public ResponseResult updateSolrIndexByUid(String uid) {
+    public String updateSolrIndexByUid(String uid) {
         log.error("搜索服务出现异常, 服务降级返回, 更新Solr索引失败");
-        return ResponseResult.fail("搜索服务出现异常, 服务降级返回, 更新Solr索引失败");
+        return ResultUtil.errorWithMessage("搜索服务出现异常, 服务降级返回, 更新Solr索引失败");
     }
 }

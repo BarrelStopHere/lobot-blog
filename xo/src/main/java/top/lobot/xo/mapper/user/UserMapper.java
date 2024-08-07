@@ -1,9 +1,8 @@
 package top.lobot.xo.mapper.user;
 
 
-import org.apache.ibatis.annotations.Select;
 import top.lobot.base.mapper.SuperMapper;
-import top.lobot.xo.entity.user.User;
+import top.lobot.xo.entity.User;
 
 /**
  *

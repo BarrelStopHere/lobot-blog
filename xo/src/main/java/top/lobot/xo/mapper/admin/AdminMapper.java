@@ -2,7 +2,7 @@ package top.lobot.xo.mapper.admin;
 
 import org.apache.ibatis.annotations.Param;
 import top.lobot.base.mapper.SuperMapper;
-import top.lobot.xo.entity.admin.Admin;
+import top.lobot.xo.entity.Admin;
 
 /**
  *

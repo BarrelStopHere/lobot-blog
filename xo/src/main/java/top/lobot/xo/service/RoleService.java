@@ -2,7 +2,7 @@ package top.lobot.xo.service;
 
 
 import top.lobot.base.service.SuperService;
-import top.lobot.xo.entity.admin.Role;
+import top.lobot.xo.entity.Role;
 import top.lobot.xo.vo.RoleVO;
 
 /**

@@ -11,7 +11,7 @@ import top.lobot.xo.conf.MessageConf;
 import top.lobot.xo.conf.RedisConf;
 import top.lobot.xo.conf.SQLConf;
 import top.lobot.xo.conf.SysConf;
-import top.lobot.xo.entity.admin.Admin;
+import top.lobot.xo.entity.Admin;
 import top.lobot.xo.mapper.blog.BlogMapper;
 import top.lobot.xo.mapper.blog.BlogSortMapper;
 import top.lobot.xo.mapper.TagMapper;

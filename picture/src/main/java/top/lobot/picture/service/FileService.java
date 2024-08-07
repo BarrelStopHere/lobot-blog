@@ -1,7 +1,7 @@
 package top.lobot.picture.service;
 
-import top.lobot.commons.entity.File;
-import top.lobot.commons.entity.SystemConfig;
+import top.lobot.xo.entity.File;
+import top.lobot.xo.entity.SystemConfig;
 import top.lobot.base.service.SuperService;
 import top.lobot.base.vo.FileVO;
 import org.springframework.web.multipart.MultipartFile;
@@ -10,10 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * 文件服务类
  *
- * @author 陌溪
- * @since 2018-09-17
+ * @author ykr
+ * @date 2024/8/7
  */
 public interface FileService extends SuperService<File> {
 

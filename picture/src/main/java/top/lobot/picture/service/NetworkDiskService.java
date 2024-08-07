@@ -1,6 +1,6 @@
 package top.lobot.picture.service;
 
-import top.lobot.commons.entity.NetworkDisk;
+import top.lobot.xo.entity.NetworkDisk;
 import top.lobot.picture.vo.NetworkDiskVO;
 import top.lobot.base.service.SuperService;
 
@@ -8,12 +8,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <p>
- * 网盘文件服务类
- * </p>
  *
- * @author 陌溪
- * @since 2020年6月13日17:11:04
+ * @author ykr
+ * @date 2024/8/7
  */
 public interface NetworkDiskService extends SuperService<NetworkDisk> {
 

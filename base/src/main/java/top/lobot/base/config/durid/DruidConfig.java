@@ -1,4 +1,4 @@
-package top.lobot.base.config.durid;//package com.moxi.mogublog.config.durid;
+package top.lobot.base.config.durid;//package top.lobot.config.durid;
 //
 //import com.alibaba.druid.pool.DruidDataSource;
 //import com.alibaba.druid.support.http.StatViewServlet;

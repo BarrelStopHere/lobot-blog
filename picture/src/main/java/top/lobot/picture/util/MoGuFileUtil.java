@@ -11,10 +11,9 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * 蘑菇文件操作
  *
- * @author: 陌溪
- * @create: 2020-06-16-9:33
+ * @author ykr
+ * @date 2024/8/7
  */
 @Slf4j
 public class MoGuFileUtil {

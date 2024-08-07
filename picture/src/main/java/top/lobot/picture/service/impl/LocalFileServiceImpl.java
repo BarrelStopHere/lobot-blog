@@ -1,6 +1,6 @@
 package top.lobot.picture.service.impl;
 
-import top.lobot.commons.entity.FileSort;
+import top.lobot.xo.entity.FileSort;
 import top.lobot.picture.service.FileSortService;
 import top.lobot.picture.service.LocalFileService;
 import top.lobot.utils.DateUtils;
@@ -26,10 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 本地文件系统实现类【通过IO流存储到本地】
  *
- * @author 陌溪
- * @since 2020年10月19日16:58:38
+ * @author ykr
+ * @date 2024/8/7
  */
 @Slf4j
 @RefreshScope

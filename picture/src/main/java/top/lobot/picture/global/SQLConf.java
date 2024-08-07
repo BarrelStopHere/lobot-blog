@@ -3,9 +3,9 @@ package top.lobot.picture.global;
 import top.lobot.base.conf.BaseSQLConf;
 
 /**
- * SQL字段常量
  *
- * @author xuzhixiang
+ * @author ykr
+ * @date 2024/8/7
  */
 public final class SQLConf extends BaseSQLConf {
 

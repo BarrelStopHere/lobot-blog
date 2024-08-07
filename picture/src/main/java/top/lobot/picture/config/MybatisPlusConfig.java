@@ -8,10 +8,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Mybatis-plus插件配置
  *
- * @author 陌溪
- * @date 2020年10月4日10:49:23
+ * @author ykr
+ * @date 2024/8/7
  */
 @Configuration
 //@MapperScan("com.baomidou.springboot.mapper*")//这个注解，作用相当于下面的@Bean MapperScannerConfigurer，2者配置1份即可
@@ -26,7 +25,7 @@ public class MybatisPlusConfig {
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer scannerConfigurer = new MapperScannerConfigurer();
-        scannerConfigurer.setBasePackage("com.moxi.mogublog.picture.mapper*");
+        scannerConfigurer.setBasePackage("top.lobot.picture.mapper*");
         return scannerConfigurer;
     }
 

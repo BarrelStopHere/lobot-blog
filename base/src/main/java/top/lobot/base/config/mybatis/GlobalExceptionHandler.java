@@ -1,4 +1,4 @@
-package top.lobot.base.config.mybatis;//package com.moxi.mogublog.config.mybatis;
+package top.lobot.base.config.mybatis;//package top.lobot.config.mybatis;
 //
 //import java.util.ArrayList;
 //import java.util.HashMap;

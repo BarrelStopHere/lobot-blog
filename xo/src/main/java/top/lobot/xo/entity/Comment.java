@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import top.lobot.base.entity.BaseEntity;
-import top.lobot.xo.entity.user.User;
 
 import java.util.List;
 

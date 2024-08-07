@@ -1,7 +1,7 @@
 package top.lobot.picture.restapi;
 
 
-import top.lobot.commons.entity.SystemConfig;
+import top.lobot.xo.entity.SystemConfig;
 import top.lobot.picture.service.FileService;
 import top.lobot.picture.util.FeignUtil;
 import top.lobot.picture.util.MinioUtil;
@@ -20,10 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 文件上传接口 【总的文件接口，需要调用本地文件、七牛云、Minio上传服务】
  *
- * @author 陌溪
- * @date 2020年10月21日15:32:03
+ * @author ykr
+ * @date 2024/8/7
  */
 @RestController
 @RequestMapping("/file")

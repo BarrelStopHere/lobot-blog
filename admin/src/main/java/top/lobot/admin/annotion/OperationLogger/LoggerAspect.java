@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import top.lobot.admin.global.RedisConf;
 import top.lobot.admin.global.SysConf;
-import top.lobot.commons.config.security.SecurityUser;
+import top.lobot.base.config.security.SecurityUser;
 import top.lobot.xo.entity.ExceptionLog;
 import top.lobot.utils.*;
 import top.lobot.base.conf.Constants;

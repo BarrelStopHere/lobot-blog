@@ -1,14 +1,15 @@
 package top.lobot.picture.vo;
 
+import lombok.EqualsAndHashCode;
 import top.lobot.base.vo.BaseVO;
 import lombok.Data;
 
 /**
- * CommentVO
  *
- * @author: 陌溪
- * @create: 2020年1月11日16:15:52
+ * @author ykr
+ * @date 2024/8/7
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class StorageVO extends BaseVO<StorageVO> {
 

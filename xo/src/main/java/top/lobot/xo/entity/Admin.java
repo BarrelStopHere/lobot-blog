@@ -1,4 +1,4 @@
-package top.lobot.xo.entity.admin;
+package top.lobot.xo.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.TableField;

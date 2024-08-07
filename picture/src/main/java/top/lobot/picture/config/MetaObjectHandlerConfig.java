@@ -10,10 +10,9 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 /**
- * Mybatis-plus自动填充
  *
- * @author 陌溪
- * @date 2020年10月4日10:48:28
+ * @author ykr
+ * @date 2024/8/7
  */
 @Component
 public class MetaObjectHandlerConfig implements MetaObjectHandler {

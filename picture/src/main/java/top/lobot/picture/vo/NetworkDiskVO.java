@@ -1,15 +1,12 @@
 package top.lobot.picture.vo;
 
-import top.lobot.base.validator.annotion.NotBlank;
-import top.lobot.base.validator.group.Insert;
 import top.lobot.base.vo.BaseVO;
 import lombok.Data;
 
 /**
- * CommentVO
  *
- * @author: 陌溪
- * @create: 2020年1月11日16:15:52
+ * @author ykr
+ * @date 2024/8/7
  */
 @Data
 public class NetworkDiskVO extends BaseVO<NetworkDiskVO> {
@@ -17,7 +14,6 @@ public class NetworkDiskVO extends BaseVO<NetworkDiskVO> {
     /**
      * 管理员UID
      */
-    @NotBlank(groups = {Insert.class})
     private String adminUid;
 
     /**

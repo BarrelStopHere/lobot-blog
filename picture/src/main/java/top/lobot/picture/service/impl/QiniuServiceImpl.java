@@ -1,7 +1,7 @@
 package top.lobot.picture.service.impl;
 
 
-import top.lobot.commons.entity.SystemConfig;
+import top.lobot.xo.entity.SystemConfig;
 import top.lobot.picture.global.MessageConf;
 import top.lobot.picture.service.FileService;
 import top.lobot.picture.service.FileSortService;
@@ -28,10 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 七牛云实现类
  *
- * @author 陌溪
- * @since 2020年1月20日20:05:45
+ * @author ykr
+ * @date 2024/8/7
  */
 @Service
 @RefreshScope

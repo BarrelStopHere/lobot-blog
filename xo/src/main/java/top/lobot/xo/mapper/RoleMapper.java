@@ -2,7 +2,7 @@ package top.lobot.xo.mapper;
 
 
 import top.lobot.base.mapper.SuperMapper;
-import top.lobot.xo.entity.admin.Role;
+import top.lobot.xo.entity.Role;
 
 /**
  *

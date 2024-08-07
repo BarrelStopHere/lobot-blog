@@ -2,10 +2,10 @@ package top.lobot.picture.service.impl;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import top.lobot.commons.entity.File;
-import top.lobot.commons.entity.NetworkDisk;
-import top.lobot.commons.entity.Storage;
-import top.lobot.commons.entity.SystemConfig;
+import top.lobot.xo.entity.File;
+import top.lobot.xo.entity.NetworkDisk;
+import top.lobot.xo.entity.Storage;
+import top.lobot.xo.entity.SystemConfig;
 import top.lobot.picture.global.MessageConf;
 import top.lobot.picture.global.SQLConf;
 import top.lobot.picture.global.SysConf;
@@ -36,10 +36,9 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 文件服务实现类
  *
- * @author 陌溪
- * @date 2018-09-17
+ * @author ykr
+ * @date 2024/8/7
  */
 @Slf4j
 @RefreshScope

@@ -3,7 +3,7 @@ package top.lobot.xo.service.impl;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import top.lobot.xo.entity.Feedback;
-import top.lobot.xo.entity.user.User;
+import top.lobot.xo.entity.User;
 import top.lobot.utils.ResultUtil;
 import top.lobot.utils.StringUtils;
 import top.lobot.xo.conf.MessageConf;

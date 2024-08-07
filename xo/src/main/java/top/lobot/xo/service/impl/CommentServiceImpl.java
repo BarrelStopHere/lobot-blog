@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import top.lobot.xo.entity.Blog;
 import top.lobot.xo.entity.Comment;
-import top.lobot.xo.entity.user.User;
+import top.lobot.xo.entity.User;
 import top.lobot.base.feign.PictureFeignClient;
 import top.lobot.utils.ResultUtil;
 import top.lobot.utils.StringUtils;

@@ -7,10 +7,9 @@ import org.apache.commons.lang3.ArrayUtils;
 import java.io.*;
 
 /**
- * 文件相关工具类
  *
- * @author 陌溪
- * @date 2020/9/14 9:31
+ * @author ykr
+ * @date 2024/8/7
  */
 @Slf4j
 public class AboutFileUtil {

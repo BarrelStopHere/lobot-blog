@@ -1,16 +1,15 @@
 package top.lobot.picture.service;
 
-import top.lobot.commons.entity.FileSort;
+import top.lobot.xo.entity.FileSort;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
 
 /**
- * 本地文件系统服务类【通过IO流存储到本地】
  *
- * @author 陌溪
- * @date 2020年10月19日16:57:23
+ * @author ykr
+ * @date 2024/8/7
  */
 public interface LocalFileService {
 

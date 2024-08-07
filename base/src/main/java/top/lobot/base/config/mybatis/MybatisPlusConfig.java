@@ -25,7 +25,7 @@ public class MybatisPlusConfig {
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer scannerConfigurer = new MapperScannerConfigurer();
-        scannerConfigurer.setBasePackage("com.moxi.mogublog.xo.mapper*");
+        scannerConfigurer.setBasePackage("top.lobot.xo.mapper*");
         return scannerConfigurer;
     }
 

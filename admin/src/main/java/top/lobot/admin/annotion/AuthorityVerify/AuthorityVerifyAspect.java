@@ -11,12 +11,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import top.lobot.admin.global.MessageConf;
+import top.lobot.admin.global.SQLConf;
+import top.lobot.base.conf.ECode;
+import top.lobot.base.enums.EMenuType;
+import top.lobot.base.enums.EStatus;
+import top.lobot.utils.JsonUtils;
 import top.lobot.utils.RedisUtil;
+import top.lobot.utils.ResultUtil;
 import top.lobot.utils.StringUtils;
 import top.lobot.xo.conf.RedisConf;
 import top.lobot.xo.conf.SysConf;
-import top.lobot.xo.entity.admin.Role;
-import top.lobot.xo.entity.user.User;
+import top.lobot.xo.entity.Admin;
+import top.lobot.xo.entity.CategoryMenu;
+import top.lobot.xo.entity.Role;
+import top.lobot.xo.entity.User;
 import top.lobot.xo.service.AdminService;
 import top.lobot.xo.service.CategoryMenuService;
 import top.lobot.xo.service.RoleService;
@@ -66,7 +75,7 @@ public class AuthorityVerifyAspect {
         String url = request.getRequestURI();
 
         // 解析出请求者的ID和用户名
-        String adminUid = request.getAttribute(SysConf.ADMIN_ID).toString();
+        String adminUid = request.getAttribute(SysConf.ADMIN_UID).toString();
 
         // 管理员能够访问的路径
         String visitUrlStr = redisUtil.get(RedisConf.ADMIN_VISIT_MENU + RedisConf.SEGMENTATION + adminUid);
@@ -78,11 +87,11 @@ public class AuthorityVerifyAspect {
             visitMap = (LinkedTreeMap<String, String>) JsonUtils.jsonToMap(visitUrlStr, String.class);
         } else {
             // 查询数据库获取
-            User admin = adminService.getById(adminUid);
+            Admin admin = adminService.getById(adminUid);
 
-            Integer roleId = admin.getRoleId();
+            String roleUid = admin.getRoleUid();
 
-            Role role = roleService.getById(roleId);
+            Role role = roleService.getById(roleUid);
 
             String categoryMenuUidStr = role.getCategoryMenuUids();
 

@@ -1,6 +1,6 @@
 package top.lobot.picture.config;
 
-import top.lobot.commons.entity.OnlineAdmin;
+import top.lobot.xo.entity.OnlineAdmin;
 import top.lobot.picture.global.RedisConf;
 import top.lobot.picture.global.SysConf;
 import top.lobot.utils.JsonUtils;
@@ -13,10 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * token拦截器
  *
- * @author: 陌溪
- * @create: 2020-06-14-21:55
+ * @author ykr
+ * @date 2024/8/7
  */
 public class TokenInterceptor extends HandlerInterceptorAdapter {
 

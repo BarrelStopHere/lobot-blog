@@ -1,8 +1,8 @@
 package top.lobot.xo.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import top.lobot.xo.entity.admin.Admin;
-import top.lobot.xo.entity.admin.Role;
+import top.lobot.xo.entity.Admin;
+import top.lobot.xo.entity.Role;
 import top.lobot.utils.RedisUtil;
 import top.lobot.utils.ResultUtil;
 import top.lobot.xo.conf.MessageConf;
