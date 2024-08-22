@@ -1,45 +1,48 @@
 ## 前言
-安装之前你需要准备一个mysql，当前安装方式是将数据持久化到数据库中的，这里的部署是单机模式
-## 1、Docker 拉取镜像
+使用此快速开始方法进行Nacos安装及部署，需要安装Docker和Docker Compose。
+## 1、下载 nacos-docker 项目
 ```bash
-docker pull nacos/nacos-server
+git clone https://github.com/nacos-group/nacos-docker.git
+cd nacos-docker
 ```
 
-
-PS：这是拉取最新的nacos版本，如果需要拉取别的版本可以加：版本号（如：docker pull nacos/nacos-server:v2.2.0）
-
-## 2、挂载目录
+## 2、执行 docker-compose 命令启动Nacos
 ```bash
-mkdir -p /mydata/nacos/logs/                      #新建logs目录
-mkdir -p /mydata/nacos/conf/					  #新建conf目录
+docker-compose -f example/standalone-derby.yaml up			  #新建conf目录
 ```
 
 PS：这一步是添加映射文件夹，将宿主机的文件映射到nacos容器中
 
-## 3、启动nacos并复制文件到宿主机，关闭容器
+## 3、验证Nacos服务是否启动成功
 ### 启动容器
 ```bash
-docker run -p 8848:8848 --name nacos -d nacos/nacos-server
+Nacos started successfully in xxxx mode. use xxxx storage
+docker logs -f $container_id #查看日志
 ```
 
 
-### 复制文件
+### 服务注册
 ```bash
-docker cp nacos:/home/nacos/logs/ /mydata/nacos/
-docker cp nacos:/home/nacos/conf/ /mydata/nacos/
+curl -X POST 'http://127.0.0.1:8848/nacos/v1/ns/instance?serviceName=nacos.naming.serviceName&ip=20.18.7.10&port=8080'
 ```
 
-### 关闭容器
+### 服务发现
 ```bash
-docker rm -f nacos
+curl -X GET 'http://127.0.0.1:8848/nacos/v1/ns/instance/list?serviceName=nacos.naming.serviceName'
 ```
 
+### 发布配置
+```bash
+curl -X POST "http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=nacos.cfg.dataId&group=test&content=helloWorld"
+```
 
-PS：这一步启动nacos是为了将nacos里面的文件拷贝出到挂载目录中，这样我们就可以直接修改挂载目录中文件来映射到容器里面去了
+### 获取配置
+```bash
+curl -X GET "http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=nacos.cfg.dataId&group=test"
+```
+### Nacos控制台页面
+link：http://127.0.0.1:8848/nacos/
 
-## 4、mysql中创建nacos所需的表
-mysql中新建一个库，名字可自定义，这里就用nacos-config
-从github中找到创建表的文件，在nacos-config库中执行，创建所需的表
 
 ## 5、再次启动nacos
 ``` bash
