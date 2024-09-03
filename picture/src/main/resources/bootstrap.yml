@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: mogu-picture
+    name: picture
   cloud:
     nacos:
       username: nacos

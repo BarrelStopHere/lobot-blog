@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import top.lobot.base.conf.BaseSysConf;
-import top.lobot.base.conf.ig.security.SecurityUser;
+import top.lobot.base.config.security.SecurityUser;
 
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
@@ -65,7 +65,7 @@ public class JwtTokenUtil {
         Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
         //添加构成JWT的参数
         JwtBuilder builder = Jwts.builder().setHeaderParam("typ", "JWT")
-                .claim(BaseSysConf.ADMIN_ID, adminUid)
+                .claim(BaseSysConf.ADMIN_UID, adminUid)
                 .claim(BaseSysConf.ROLE, roleName)
                 .claim(BaseSysConf.CREATE_TIME, now)
                 .setSubject(userName)
@@ -134,7 +134,7 @@ public class JwtTokenUtil {
      * @return
      */
     public String getUserUid(String token, String base64Security) {
-        return parseJWT(token, base64Security).get(BaseSysConf.ADMIN_ID, String.class);
+        return parseJWT(token, base64Security).get(BaseSysConf.ADMIN_UID, String.class);
     }
 
     /**

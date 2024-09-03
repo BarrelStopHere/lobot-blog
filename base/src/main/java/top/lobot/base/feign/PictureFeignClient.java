@@ -4,7 +4,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import top.lobot.base.conf.ig.feign.FeignConfiguration;
+import top.lobot.base.config.feign.FeignConfiguration;
 import top.lobot.base.fallback.PictureFeignFallback;
 import top.lobot.base.response.ResponseResult;
 import top.lobot.base.vo.FileVO;
