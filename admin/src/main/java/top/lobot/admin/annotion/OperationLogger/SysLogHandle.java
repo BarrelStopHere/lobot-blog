@@ -16,12 +16,6 @@ import top.lobot.base.holder.AbstractRequestAwareRunnable;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-/**
- * 异步记录日志
- *
- * @author: 陌溪
- * @create: 2020-03-05-8:59
- */
 public class SysLogHandle extends AbstractRequestAwareRunnable {
 
     /**

@@ -24,7 +24,7 @@ import java.util.Map;
 public class RabbitMqUtil {
 
     public static final String EXCHANGE_DIRECT = "exchange.direct";
-    public static final String ROUTING_KEY_EMAIL = "mogu.email";
+    public static final String ROUTING_KEY_EMAIL = "lobot.email";
     @Autowired
     private RabbitTemplate rabbitTemplate;
     @Value(value = "${data.web.url}")

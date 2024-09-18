@@ -26,8 +26,12 @@ import java.util.TimeZone;
 @EnableRabbit
 @EnableFeignClients("top.lobot.base.feign")
 @ComponentScan(basePackages = {
+        "top.lobot.base.config",
+        "top.lobot.base.fallback",
         "top.lobot.utils",
         "top.lobot.admin",
+        "top.lobot.xo.utils",
+        "top.lobot.xo.service"
 })
 public class AdminApplication {
 

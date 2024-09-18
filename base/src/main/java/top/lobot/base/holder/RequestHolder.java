@@ -131,8 +131,8 @@ public class RequestHolder {
      */
     public static String getAdminUid() {
         HttpServletRequest request = RequestHolder.getRequest();
-        if (request.getAttribute(BaseSysConf.ADMIN_ID) != null) {
-            return request.getAttribute(BaseSysConf.ADMIN_ID).toString();
+        if (request.getAttribute(BaseSysConf.ADMIN_UID) != null) {
+            return request.getAttribute(BaseSysConf.ADMIN_UID).toString();
         } else {
             return null;
         }

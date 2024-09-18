@@ -5,12 +5,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**
- * 自定义注解 避免接口重复提交
- *
- * @author Administrator
- * @date 2020年4月23日12:12:04
- */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface AvoidRepeatableCommit {

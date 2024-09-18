@@ -43,8 +43,8 @@ public class CreatCodeRestApi {
     private String templateCode;
     @Value(value = "${signName}")
     private String signName;
-    @Value(value = "${moguBlog.email}")
-    private String moguBlogEmail;
+    @Value(value = "${email}")
+    private String lobotEmail;
 
     @OperationLogger(value = "生成验证码")
     @ApiOperation(value = "生成验证码", notes = "生成验证码")
@@ -84,8 +84,8 @@ public class CreatCodeRestApi {
                         "\r\n" +
                         "</div>\r\n" +
                         "<div class=\"panel-body\">\r\n" +
-                        "<p>您好 <a href=\"mailto:" + moguBlogEmail + "\" rel=\"noopener\" target=\"_blank\">" + info + "<wbr></a>！</p>\r\n" +
-                        "<p>欢迎注册蘑菇博客，请将验证码填写到注册页面。</p>\r\n" +
+                        "<p>您好 <a href=\"mailto:" + lobotEmail + "\" rel=\"noopener\" target=\"_blank\">" + info + "<wbr></a>！</p>\r\n" +
+                        "<p>欢迎注册lobot博客，请将验证码填写到注册页面。</p>\r\n" +
                         "<p>验证码：" + code + "</p>\r\n" +
                         "\r\n" +
                         "</div>\r\n" +

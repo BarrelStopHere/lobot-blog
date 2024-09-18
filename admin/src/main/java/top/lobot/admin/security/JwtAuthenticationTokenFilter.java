@@ -44,22 +44,22 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 
-    @Value(value = "${tokenHead}")
+    @Value(value = "${jwt.tokenHead}")
     private String tokenHead;
 
-    @Value(value = "${tokenHeader}")
+    @Value(value = "${jwt.tokenHeader}")
     private String tokenHeader;
 
     /**
      * token过期的时间
      */
-    @Value(value = "${audience.expiresSecond}")
+    @Value(value = "${jwt.expiresSecond}")
     private Long expiresSecond;
 
     /**
      * token刷新的时间
      */
-    @Value(value = "${audience.refreshSecond}")
+    @Value(value = "${jwt.refreshSecond}")
     private Long refreshSecond;
 
     @Autowired
