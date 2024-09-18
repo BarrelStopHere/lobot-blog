@@ -1,7 +1,6 @@
 server:
   port: 8085
 spring:
-  datasource:
     username: root
     password: 123456
     url: jdbc:mysql://124.222.64.138:3307/admin?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&useSSL=false&serverTimezone=Asia/Shanghai
