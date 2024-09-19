@@ -192,7 +192,8 @@ public class LoginRestApi {
     @GetMapping(value = "/getMenu")
     public String getMenu(HttpServletRequest request) {
 
-        Collection<CategoryMenu> categoryMenuList = new ArrayList<>();
+        Collection<CategoryMenu> categoryMenuList;
+        //TODO 替换为cookie读取id
         Admin admin = adminService.getById(request.getAttribute(SysConf.ADMIN_UID).toString());
 
         List<String> roleUid = new ArrayList<>();
