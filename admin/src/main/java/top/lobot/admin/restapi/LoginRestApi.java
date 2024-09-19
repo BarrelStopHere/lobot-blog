@@ -126,11 +126,11 @@ public class LoginRestApi {
         if (roles.size() <= 0) {
             return ResultUtil.result(SysConf.ERROR, MessageConf.NO_ROLE);
         }
-        String roleNames = null;
+        StringJoiner roleNames = new StringJoiner(Constants.SYMBOL_COMMA);
         for (Role role : roles) {
-            roleNames += (role.getRoleName() + Constants.SYMBOL_COMMA);
+            roleNames.add(role.getRoleName());
         }
-        String roleName = roleNames.substring(0, roleNames.length() - 2);
+        String roleName = roleNames.toString();
         long expiration = isRememberMe ? isRememberMeExpiresSecond : audience.getExpiresSecond();
         String jwtToken = jwtTokenUtil.createJWT(admin.getUserName(),
                 admin.getUid(),
