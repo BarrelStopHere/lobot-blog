@@ -162,13 +162,13 @@ public class LoginRestApi {
     @ApiOperation(value = "用户信息", notes = "用户信息", response = String.class)
     @GetMapping(value = "/info")
     public String info(HttpServletRequest request,
-                       @ApiParam(name = "token", value = "token令牌", required = false) @RequestParam(name = "token", required = false) String token) {
-
+                       @ApiParam(name = "token", value = "token令牌") @RequestParam(name = "token", required = false) String token) {
+        String userUid = jwtTokenUtil.getUserUid(token.substring(tokenHead.length()), audience.getBase64Secret());
         Map<String, Object> map = new HashMap<>(Constants.NUM_THREE);
-        if (request.getAttribute(SysConf.ADMIN_UID) == null) {
+        if (userUid == null) {
             return ResultUtil.result(SysConf.ERROR, "token用户过期");
         }
-        Admin admin = adminService.getById(request.getAttribute(SysConf.ADMIN_UID).toString());
+        Admin admin = adminService.getById(userUid);
         map.put(SysConf.TOKEN, token);
         //获取图片
         if (StringUtils.isNotEmpty(admin.getAvatar())) {
