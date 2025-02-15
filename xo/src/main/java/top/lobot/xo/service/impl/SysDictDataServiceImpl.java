@@ -3,12 +3,12 @@ package top.lobot.xo.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.beans.factory.annotation.Value;
+import top.lobot.base.config.jwt.Audience;
+import top.lobot.base.config.jwt.JwtTokenUtil;
+import top.lobot.utils.*;
 import top.lobot.xo.entity.SysDictData;
 import top.lobot.xo.entity.SysDictType;
-import top.lobot.utils.JsonUtils;
-import top.lobot.utils.RedisUtil;
-import top.lobot.utils.ResultUtil;
-import top.lobot.utils.StringUtils;
 import top.lobot.xo.conf.MessageConf;
 import top.lobot.xo.conf.SQLConf;
 import top.lobot.xo.conf.SysConf;
@@ -39,10 +39,21 @@ public class SysDictDataServiceImpl extends SuperServiceImpl<SysDictDataMapper, 
 
     @Autowired
     private SysDictDataService sysDictDataService;
+
     @Autowired
     private SysDictTypeService sysDictTypeService;
+
     @Autowired
     private RedisUtil redisUtil;
+
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
+    @Autowired
+    private Audience audience;
+
+    @Value(value = "${tokenHead}")
+    private String tokenHead;
 
     @Override
     public IPage<SysDictData> getPageList(SysDictDataVO sysDictDataVO) {
@@ -84,7 +95,7 @@ public class SysDictDataServiceImpl extends SuperServiceImpl<SysDictDataMapper, 
     @Override
     public String addSysDictData(SysDictDataVO sysDictDataVO) {
         HttpServletRequest request = RequestHolder.getRequest();
-        String adminUid = request.getAttribute(SysConf.ADMIN_UID).toString();
+        String adminUid = jwtTokenUtil.getUserUid(CookieUtils.getCookieValue(request, SysConf.ADMIN_TOKEN).substring(tokenHead.length()), audience.getBase64Secret());
         // 判断添加的字典数据是否存在
         QueryWrapper<SysDictData> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq(SQLConf.DICT_LABEL, sysDictDataVO.getDictLabel());
@@ -107,7 +118,7 @@ public class SysDictDataServiceImpl extends SuperServiceImpl<SysDictDataMapper, 
     @Override
     public String editSysDictData(SysDictDataVO sysDictDataVO) {
         HttpServletRequest request = RequestHolder.getRequest();
-        String adminUid = request.getAttribute(SysConf.ADMIN_UID).toString();
+        String adminUid = jwtTokenUtil.getUserUid(CookieUtils.getCookieValue(request, SysConf.ADMIN_TOKEN).substring(tokenHead.length()), audience.getBase64Secret());
         SysDictData sysDictData = sysDictDataService.getById(sysDictDataVO.getUid());
         // 更改了标签名时，判断更改的字典数据是否存在
         if (!sysDictData.getDictLabel().equals(sysDictDataVO.getDictLabel())) {
@@ -137,7 +148,7 @@ public class SysDictDataServiceImpl extends SuperServiceImpl<SysDictDataMapper, 
     @Override
     public String deleteBatchSysDictData(List<SysDictDataVO> sysDictDataVOList) {
         HttpServletRequest request = RequestHolder.getRequest();
-        String adminUid = request.getAttribute(SysConf.ADMIN_UID).toString();
+        String adminUid = jwtTokenUtil.getUserUid(CookieUtils.getCookieValue(request, SysConf.ADMIN_TOKEN).substring(tokenHead.length()), audience.getBase64Secret());
         if (sysDictDataVOList.size() <= 0) {
             return ResultUtil.errorWithMessage(MessageConf.PARAM_INCORRECT);
         }

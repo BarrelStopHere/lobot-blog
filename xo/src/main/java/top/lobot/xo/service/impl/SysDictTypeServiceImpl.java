@@ -3,6 +3,10 @@ package top.lobot.xo.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.beans.factory.annotation.Value;
+import top.lobot.base.config.jwt.Audience;
+import top.lobot.base.config.jwt.JwtTokenUtil;
+import top.lobot.utils.CookieUtils;
 import top.lobot.xo.entity.SysDictData;
 import top.lobot.xo.entity.SysDictType;
 import top.lobot.utils.RedisUtil;
@@ -41,6 +45,15 @@ public class SysDictTypeServiceImpl extends SuperServiceImpl<SysDictTypeMapper, 
 
     @Autowired
     RedisUtil redisUtil;
+
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
+    @Autowired
+    private Audience audience;
+
+    @Value(value = "${tokenHead}")
+    private String tokenHead;
 
     @Override
     public IPage<SysDictType> getPageList(SysDictTypeVO sysDictTypeVO) {
@@ -135,7 +148,7 @@ public class SysDictTypeServiceImpl extends SuperServiceImpl<SysDictTypeMapper, 
     @Override
     public String deleteBatchSysDictType(List<SysDictTypeVO> sysDictTypeVOList) {
         HttpServletRequest request = RequestHolder.getRequest();
-        String adminUid = request.getAttribute(SysConf.ADMIN_UID).toString();
+        String adminUid = jwtTokenUtil.getUserUid(CookieUtils.getCookieValue(request, SysConf.ADMIN_TOKEN).substring(tokenHead.length()), audience.getBase64Secret());
         if (sysDictTypeVOList.size() <= 0) {
             return ResultUtil.errorWithMessage(MessageConf.PARAM_INCORRECT);
         }

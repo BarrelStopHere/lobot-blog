@@ -2,6 +2,10 @@ package top.lobot.xo.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.beans.factory.annotation.Value;
+import top.lobot.base.config.jwt.Audience;
+import top.lobot.base.config.jwt.JwtTokenUtil;
+import top.lobot.utils.CookieUtils;
 import top.lobot.xo.entity.Feedback;
 import top.lobot.xo.entity.User;
 import top.lobot.utils.ResultUtil;
@@ -34,8 +38,18 @@ public class FeedbackServiceImpl extends SuperServiceImpl<FeedbackMapper, Feedba
 
     @Autowired
     private FeedbackService feedbackService;
+
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
+    @Autowired
+    private Audience audience;
+
+    @Value(value = "${tokenHead}")
+    private String tokenHead;
 
     @Override
     public IPage<Feedback> getPageList(FeedbackVO feedbackVO) {
@@ -96,7 +110,7 @@ public class FeedbackServiceImpl extends SuperServiceImpl<FeedbackMapper, Feedba
     @Override
     public String deleteBatchFeedback(List<FeedbackVO> feedbackVOList) {
         HttpServletRequest request = RequestHolder.getRequest();
-        final String adminUid = request.getAttribute(SysConf.ADMIN_UID).toString();
+        final String adminUid = jwtTokenUtil.getUserUid(CookieUtils.getCookieValue(request, SysConf.ADMIN_TOKEN).substring(tokenHead.length()), audience.getBase64Secret());
         if (feedbackVOList.size() <= 0) {
             return ResultUtil.result(SysConf.ERROR, MessageConf.PARAM_INCORRECT);
         }

@@ -1,5 +1,6 @@
 package top.lobot.admin.restapi;
 
+import com.alibaba.fastjson.JSONArray;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import top.lobot.admin.global.MessageConf;
 import top.lobot.admin.global.RedisConf;
@@ -54,24 +55,34 @@ public class LoginRestApi {
 
     @Autowired
     private WebUtil webUtil;
+
     @Autowired
     private AdminService adminService;
+
     @Autowired
     private RoleService roleService;
+
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
+
     @Autowired
     private CategoryMenuService categoryMenuService;
+
     @Autowired
     private Audience audience;
+
     @Value(value = "${tokenHead}")
     private String tokenHead;
+
     @Value(value = "${isRememberMeExpiresSecond}")
     private int isRememberMeExpiresSecond;
+
     @Autowired
     private RedisUtil redisUtil;
+
     @Resource
     private PictureFeignClient pictureFeignClient;
+
     @Autowired
     private WebConfigService webConfigService;
 
@@ -193,18 +204,13 @@ public class LoginRestApi {
     public String getMenu(HttpServletRequest request) {
 
         Collection<CategoryMenu> categoryMenuList;
-        //TODO 替换为cookie读取id
-        Admin admin = adminService.getById(request.getAttribute(SysConf.ADMIN_UID).toString());
-
+        String adminUid = jwtTokenUtil.getUserUid(CookieUtils.getCookieValue(request, SysConf.ADMIN_TOKEN).substring(tokenHead.length()), audience.getBase64Secret());
+        Admin admin = adminService.getById(adminUid);
         List<String> roleUid = new ArrayList<>();
         roleUid.add(admin.getRoleUid());
         Collection<Role> roleList = roleService.listByIds(roleUid);
         List<String> categoryMenuUids = new ArrayList<>();
-        roleList.forEach(item -> {
-            String caetgoryMenuUids = item.getCategoryMenuUids();
-            String[] uids = caetgoryMenuUids.replace("[", "").replace("]", "").replace("\"", "").split(",");
-            categoryMenuUids.addAll(Arrays.asList(uids));
-        });
+        roleList.forEach(item -> categoryMenuUids.addAll(JSONArray.parseArray(item.getCategoryMenuUids().replace("\\\"", "\""),String.class)));
         categoryMenuList = categoryMenuService.listByIds(categoryMenuUids);
 
         // 从三级级分类中查询出 二级分类

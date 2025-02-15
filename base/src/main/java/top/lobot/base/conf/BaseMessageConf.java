@@ -85,7 +85,7 @@ public class BaseMessageConf {
      * 查询操作默认异常码
      */
     public static final String QUERY_DEFAULT_ERROR = "查询操作失败";
-    public static final String SYSTEM_CONFIG_IS_NOT_EXIST = "系统配置不存在，请检查t_system_config表是否有数据，并重新导入数据库";
+    public static final String SYSTEM_CONFIG_IS_NOT_EXIST = "系统配置不存在，请检查system_config表是否有数据，并重新导入数据库";
     public static final String PLEASE_CONFIGURE_PASSWORD = "请先到参数配置，配置默认密码";
     public static final String PLEASE_CONFIGURE_BLOG_COUNT = "请先到参数配置，配置博客显示数量";
     public static final String PLEASE_CONFIGURE_TAG_COUNT = "请先到参数配置，配置标签显示数量";

@@ -74,7 +74,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
         //TODO 判断是否触发 mogu-picture发送的请求【图片上传鉴权，需要用户登录，携带token请求admin，后期考虑加入OAuth服务统一鉴权】
         final String pictureToken = request.getHeader("pictureToken");
-        if (StringUtils.isNotEmpty(pictureToken)) {
+        if (StringUtils.isNotEmpty(pictureToken) && !pictureToken.equals(SysConf.UNDEFINED)) {
             authHeader = pictureToken;
         }
 
@@ -103,7 +103,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
                     // 生成一个新的Token
                     String newToken = tokenHead + jwtTokenUtil.refreshToken(token, base64Secret, expiresSecond * 1000);
                     // 生成新的token，发送到客户端
-                    CookieUtils.setCookie("Admin-Token", newToken, expiresSecond.intValue());
+                    CookieUtils.setCookie(SysConf.ADMIN_TOKEN, newToken, expiresSecond.intValue());
                     OnlineAdmin newOnlineAdmin = JsonUtils.jsonToPojo(onlineAdmin, OnlineAdmin.class);
                     // 获取旧的TokenUid
                     String oldTokenUid = newOnlineAdmin.getTokenId();

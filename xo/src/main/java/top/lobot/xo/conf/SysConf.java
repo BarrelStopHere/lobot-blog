@@ -32,6 +32,7 @@ public final class SysConf extends BaseSysConf {
 
     public final static String ADMIN = "admin";
     public final static String ADMIN_UID = "adminUid";
+    public static final String ADMIN_TOKEN = "Admin-Token";
     public final static String ADMIN_UIDS = "adminUids";
     public final static String ROLE_UIDS = "roleIds";
     public final static String CLAIMS = "claims";

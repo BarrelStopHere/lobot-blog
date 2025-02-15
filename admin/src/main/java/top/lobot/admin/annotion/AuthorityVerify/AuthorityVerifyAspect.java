@@ -1,5 +1,6 @@
 package top.lobot.admin.annotion.AuthorityVerify;
 
+import com.alibaba.fastjson.JSONArray;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.gson.internal.LinkedTreeMap;
 import lombok.extern.slf4j.Slf4j;
@@ -8,18 +9,18 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import top.lobot.admin.global.MessageConf;
 import top.lobot.admin.global.SQLConf;
 import top.lobot.base.conf.ECode;
+import top.lobot.base.config.jwt.Audience;
+import top.lobot.base.config.jwt.JwtTokenUtil;
 import top.lobot.base.enums.EMenuType;
 import top.lobot.base.enums.EStatus;
-import top.lobot.utils.JsonUtils;
-import top.lobot.utils.RedisUtil;
-import top.lobot.utils.ResultUtil;
-import top.lobot.utils.StringUtils;
+import top.lobot.utils.*;
 import top.lobot.xo.conf.RedisConf;
 import top.lobot.xo.conf.SysConf;
 import top.lobot.xo.entity.Admin;
@@ -46,7 +47,6 @@ import java.util.concurrent.TimeUnit;
 @Component
 @Slf4j
 public class AuthorityVerifyAspect {
-
     @Autowired
     CategoryMenuService categoryMenuService;
 
@@ -58,6 +58,15 @@ public class AuthorityVerifyAspect {
 
     @Autowired
     RedisUtil redisUtil;
+
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
+    @Autowired
+    private Audience audience;
+
+    @Value(value = "${tokenHead}")
+    private String tokenHead;
 
     @Pointcut(value = "@annotation(authorityVerify)")
     public void pointcut(AuthorityVerify authorityVerify) {
@@ -75,14 +84,14 @@ public class AuthorityVerifyAspect {
         String url = request.getRequestURI();
 
         // 解析出请求者的ID和用户名
-        String adminUid = request.getAttribute(SysConf.ADMIN_UID).toString();
+        String adminUid = jwtTokenUtil.getUserUid(CookieUtils.getCookieValue(request, SysConf.ADMIN_TOKEN).substring(tokenHead.length()), audience.getBase64Secret());
 
         // 管理员能够访问的路径
         String visitUrlStr = redisUtil.get(RedisConf.ADMIN_VISIT_MENU + RedisConf.SEGMENTATION + adminUid);
 
         LinkedTreeMap<String, String> visitMap = new LinkedTreeMap<>();
 
-        if (StringUtils.isNotEmpty(visitUrlStr)) {
+        if (StringUtils.isNotEmpty(visitUrlStr) && !visitUrlStr.equals("{}")) {
             // 从Redis中获取
             visitMap = (LinkedTreeMap<String, String>) JsonUtils.jsonToMap(visitUrlStr, String.class);
         } else {
@@ -95,9 +104,7 @@ public class AuthorityVerifyAspect {
 
             String categoryMenuUidStr = role.getCategoryMenuUids();
 
-            String[] uids = categoryMenuUidStr.replace("[", "").replace("]", "").replace("\"", "").split(",");
-
-            List<String> categoryMenuUids = new ArrayList<>(Arrays.asList(uids));
+            List<String> categoryMenuUids = JSONArray.parseArray(categoryMenuUidStr.replace("\\\"", "\""),String.class);
 
             // 这里只需要查询访问的按钮
             QueryWrapper<CategoryMenu> queryWrapper = new QueryWrapper<>();

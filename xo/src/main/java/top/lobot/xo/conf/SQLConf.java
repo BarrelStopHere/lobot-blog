@@ -47,31 +47,31 @@ public final class SQLConf extends BaseSQLConf {
     public final static String IS_ORIGINAL = "is_original";
 
     /**
-     * t_web_visit表
+     * web_visit表
      */
     public final static String IP = "ip";
     public final static String BEHAVIOR = "behavior";
 
     /**
-     * t_category_meun表
+     * category_meun表
      */
     public final static String MENU_LEVEL = "menu_level";
     public final static String MENU_TYPE = "menu_type";
     public final static String PARENT_UID = "parent_uid";
 
     /**
-     * t_web_navbar表
+     * web_navbar表
      */
     public final static String NAVBAR_LEVEL = "navbar_level";
 
     /**
-     * t_exception_log
+     * exception_log
      */
     public final static String EXCEPTION_JSON = "exceptionJson";
     public final static String SPEND_TIME = "spend_Time";
 
     /**
-     * t_todo
+     * todo表
      */
     public final static String TEXT = "text";
 
@@ -82,9 +82,6 @@ public final class SQLConf extends BaseSQLConf {
     public final static String BLOG_UID = "blog_uid";
     public final static String MODULE_UID = "module_uid";
 
-    /**
-     * Blog表
-     */
     public static final String LEVEL = "level";
     public final static String SUMMARY = "summary";
 

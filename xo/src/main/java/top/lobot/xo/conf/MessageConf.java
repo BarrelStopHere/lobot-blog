@@ -9,5 +9,4 @@ import top.lobot.base.conf.BaseMessageConf;
  * @date 2024/8/2
  */
 public final class MessageConf extends BaseMessageConf {
-
 }

@@ -4,7 +4,6 @@ package top.lobot.admin.global;
 import top.lobot.base.conf.BaseSysConf;
 
 /**
- *
  * @author ykr
  * @date 2024/8/7
  */
@@ -26,6 +25,7 @@ public final class SysConf extends BaseSysConf {
 
     public final static String ADMIN = "admin";
     public final static String ADMIN_UID = "adminUid";
+    public static final String ADMIN_TOKEN = "Admin-Token";
     public final static String ADMINUIDS = "adminUids";
     public final static String ROLEUIDS = "roleUids";
     public final static String CLAIMS = "claims";
@@ -42,6 +42,6 @@ public final class SysConf extends BaseSysConf {
 
     public final static String LOG = "log";
     public final static String EXCEPTION = "exception";
-
+    public static final String UNDEFINED = "undefined";
 
 }
