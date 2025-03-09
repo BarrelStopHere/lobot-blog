@@ -1,0 +1,12 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: web
+    container_name: web
+    ports:
+      - "8603:8603"
+networks:
+  my_network:
+    driver: bridge
