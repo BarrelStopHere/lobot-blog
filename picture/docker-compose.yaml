@@ -8,5 +8,5 @@ services:
     ports:
       - "8602:8602"
 networks:
-  my_network:
+  my-bridge:
     driver: bridge

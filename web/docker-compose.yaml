@@ -7,6 +7,8 @@ services:
     container_name: web
     ports:
       - "8603:8603"
+    networks: # 关键：显式关联自定义网络
+          - my-bridge  # 网络名称可自定义
 networks:
-  my_network:
+  my-bridge:
     driver: bridge
