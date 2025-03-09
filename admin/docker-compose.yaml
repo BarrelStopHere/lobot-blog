@@ -8,8 +8,9 @@ services:
     container_name: admin
     ports:
       - "8085:8085"
-    networks: # 关键：显式关联自定义网络
-      - my-bridge  # 网络名称可自定义
+    networks:  # 关键：关联到外部网络
+      - shared-net
+
 networks:
-  my-bridge:
-    driver: bridge
+  shared-net:  # 网络名称必须与手动创建的一致
+    external: true  # 声明使用外部网络
