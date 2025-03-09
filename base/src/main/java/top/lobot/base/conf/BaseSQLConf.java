@@ -70,18 +70,18 @@ public class BaseSQLConf {
     public final static String IP = "ip";
 
     /**
-     * t_comment表
+     * comment表
      */
     public final static String TYPE = "type";
 
     /**
-     * t_subject表
+     * subject表
      */
     public final static String SUBJECT_NAME = "subject_name";
     public final static String SUBJECT_UID = "subject_uid";
 
     /**
-     * t_picture表
+     * picture表
      */
     public final static String FILE_OLD_NAME = "file_old_name";
     public final static String FILE_PATH = "file_path";

@@ -1,6 +1,7 @@
 package top.lobot.admin.restapi;
 
 
+import com.google.common.collect.Lists;
 import top.lobot.admin.annotion.AuthorityVerify.AuthorityVerify;
 import top.lobot.admin.annotion.OperationLogger.OperationLogger;
 import top.lobot.utils.ResultUtil;
@@ -40,6 +41,12 @@ public class SystemConfigRestApi {
     @PostMapping("/cleanRedisByKey")
     public String cleanRedisByKey(@RequestBody List<String> key) {
         return systemConfigService.cleanRedisByKey(key);
+    }
+
+    @ApiOperation(value = "通过url快速清空Redis缓存", notes = "通过url快速清空Redis缓存")
+    @GetMapping("/remove/{key}")
+    public String cleanRedisByKey(@PathVariable String key) {
+        return systemConfigService.cleanRedisByKey(Lists.newArrayList(key));
     }
 
     @AuthorityVerify

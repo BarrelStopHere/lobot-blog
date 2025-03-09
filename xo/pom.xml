@@ -37,7 +37,7 @@
 
     <!-- Package as an executable jar -->
     <build>
-        <finalName>mogu_xo</finalName>
+        <finalName>xo</finalName>
         <resources>
             <resource>
                 <directory>src/main/java</directory>

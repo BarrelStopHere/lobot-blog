@@ -11,7 +11,7 @@ import top.lobot.base.enums.EOpenStatus;
 import top.lobot.base.enums.EQiNiuArea;
 import top.lobot.base.exception.exceptionType.QueryException;
 import top.lobot.base.conf.Constants;
-import top.lobot.base.conf.ErrorCode;
+import top.lobot.base.enums.ErrorCode;
 import com.qiniu.common.QiniuException;
 import com.qiniu.common.Zone;
 import com.qiniu.http.Response;

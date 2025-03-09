@@ -2,7 +2,7 @@ package top.lobot.xo.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import top.lobot.base.conf.ErrorCode;
+import top.lobot.base.enums.ErrorCode;
 import top.lobot.base.enums.EFilePriority;
 import top.lobot.base.enums.EStatus;
 import top.lobot.base.exception.exceptionType.QueryException;

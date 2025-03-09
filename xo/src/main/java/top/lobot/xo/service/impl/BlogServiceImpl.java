@@ -12,8 +12,8 @@ import top.lobot.xo.conf.RedisConf;
 import top.lobot.xo.conf.SQLConf;
 import top.lobot.xo.conf.SysConf;
 import top.lobot.xo.entity.Admin;
-import top.lobot.xo.mapper.blog.BlogMapper;
-import top.lobot.xo.mapper.blog.BlogSortMapper;
+import top.lobot.xo.mapper.BlogMapper;
+import top.lobot.xo.mapper.BlogSortMapper;
 import top.lobot.xo.mapper.TagMapper;
 import top.lobot.xo.service.*;
 import top.lobot.xo.utils.WebUtil;
@@ -745,7 +745,7 @@ public class BlogServiceImpl extends SuperServiceImpl<BlogMapper, Blog> implemen
         Boolean isSave = blogService.save(blog);
 
         //保存成功后，需要发送消息到solr 和 redis
-        updateSolrAndRedis(isSave, blog);
+//        updateSolrAndRedis(isSave, blog);
         return ResultUtil.successWithMessage(MessageConf.INSERT_SUCCESS);
     }
 
@@ -801,7 +801,7 @@ public class BlogServiceImpl extends SuperServiceImpl<BlogMapper, Blog> implemen
 
         Boolean isSave = blog.updateById();
         //保存成功后，需要发送消息到solr 和 redis
-        updateSolrAndRedis(isSave, blog);
+//        updateSolrAndRedis(isSave, blog);
         return ResultUtil.successWithMessage(MessageConf.UPDATE_SUCCESS);
     }
 
@@ -845,7 +845,7 @@ public class BlogServiceImpl extends SuperServiceImpl<BlogMapper, Blog> implemen
             Map<String, Object> map = new HashMap<>();
             map.put(SysConf.COMMAND, SysConf.EDIT_BATCH);
             //发送到RabbitMq
-            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.MOGU_BLOG, map);
+//            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.LOBOT_BLOG, map);
         }
 
         return ResultUtil.successWithMessage(MessageConf.UPDATE_SUCCESS);
@@ -866,7 +866,7 @@ public class BlogServiceImpl extends SuperServiceImpl<BlogMapper, Blog> implemen
             map.put(SysConf.LEVEL, blog.getLevel());
             map.put(SysConf.CREATE_TIME, blog.getCreateTime());
             //发送到RabbitMq
-            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.MOGU_BLOG, map);
+//            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.LOBOT_BLOG, map);
 
             // 移除所有包含该博客的专题Item
             List<String> blogUidList = new ArrayList<>(Constants.NUM_ONE);
@@ -903,7 +903,7 @@ public class BlogServiceImpl extends SuperServiceImpl<BlogMapper, Blog> implemen
             map.put(SysConf.COMMAND, SysConf.DELETE_BATCH);
             map.put(SysConf.UID, uidSbf);
             //发送到RabbitMq
-            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.MOGU_BLOG, map);
+//            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.LOBOT_BLOG, map);
             // 移除所有包含该博客的专题Item
             subjectItemService.deleteBatchSubjectItemByBlogUid(uidList);
             // 移除该文章下所有评论
@@ -1788,7 +1788,7 @@ public class BlogServiceImpl extends SuperServiceImpl<BlogMapper, Blog> implemen
             map.put(SysConf.CREATE_TIME, blog.getCreateTime());
 
             //发送到RabbitMq
-            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.MOGU_BLOG, map);
+//            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.LOBOT_BLOG, map);
 
         } else if (EPublish.NO_PUBLISH.equals(blog.getIsPublish())) {
 
@@ -1800,7 +1800,7 @@ public class BlogServiceImpl extends SuperServiceImpl<BlogMapper, Blog> implemen
             map.put(SysConf.CREATE_TIME, blog.getCreateTime());
 
             //发送到RabbitMq
-            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.MOGU_BLOG, map);
+//            rabbitTemplate.convertAndSend(SysConf.EXCHANGE_DIRECT, SysConf.LOBOT_BLOG, map);
         }
     }
 

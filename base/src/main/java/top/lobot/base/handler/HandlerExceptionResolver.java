@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.http.MediaType;
 import org.springframework.web.servlet.ModelAndView;
 import top.lobot.base.conf.BaseMessageConf;
-import top.lobot.base.conf.ErrorCode;
+import top.lobot.base.enums.ErrorCode;
 import top.lobot.base.exception.exceptionType.*;
 
 import javax.servlet.http.HttpServletRequest;

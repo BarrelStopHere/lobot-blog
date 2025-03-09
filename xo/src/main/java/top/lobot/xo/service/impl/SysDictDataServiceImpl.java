@@ -12,7 +12,7 @@ import top.lobot.xo.entity.SysDictType;
 import top.lobot.xo.conf.MessageConf;
 import top.lobot.xo.conf.SQLConf;
 import top.lobot.xo.conf.SysConf;
-import top.lobot.xo.mapper.admin.SysDictDataMapper;
+import top.lobot.xo.mapper.SysDictDataMapper;
 import top.lobot.xo.service.SysDictDataService;
 import top.lobot.xo.service.SysDictTypeService;
 import top.lobot.xo.vo.SysDictDataVO;

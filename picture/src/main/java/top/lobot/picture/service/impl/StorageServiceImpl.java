@@ -20,7 +20,7 @@ import top.lobot.utils.WebUtils;
 import top.lobot.base.enums.EStatus;
 import top.lobot.base.exception.exceptionType.QueryException;
 import top.lobot.base.exception.exceptionType.UpdateException;
-import top.lobot.base.conf.ErrorCode;
+import top.lobot.base.enums.ErrorCode;
 import top.lobot.base.holder.RequestHolder;
 import top.lobot.base.service.impl.SuperServiceImpl;
 import lombok.extern.slf4j.Slf4j;

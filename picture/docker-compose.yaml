@@ -1,0 +1,12 @@
+services:
+  picture:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: picture
+    container_name: picture
+    ports:
+      - "8602:8602"
+networks:
+  my_network:
+    driver: bridge

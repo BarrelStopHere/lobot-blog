@@ -16,7 +16,7 @@ import top.lobot.xo.vo.SubjectItemVO;
 import top.lobot.base.enums.EStatus;
 import top.lobot.base.exception.exceptionType.DeleteException;
 import top.lobot.base.conf.BaseSQLConf;
-import top.lobot.base.conf.ErrorCode;
+import top.lobot.base.enums.ErrorCode;
 import top.lobot.base.service.impl.SuperServiceImpl;
 import org.springframework.stereotype.Service;
 

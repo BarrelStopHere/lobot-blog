@@ -163,26 +163,6 @@ public class PictureProcesser implements PageProcessor {
         return localFile;
     }
 
-    private static void add(List<String> localFile) throws QiniuException {
-        for (String ss : localFile) {
-            //构造一个带指定Zone对象的配置类
-            Configuration cfg = new Configuration(Zone.zone2());
-            //生成上传凭证，然后准备上传
-            String accessKey = "KPTcX6IBYXrR8wpE0VvcUXBu4XkC0XyhquFivGYe";
-            String secretKey = "bQcxUBc_c8evOPKZMxiJ2luHTROcRha3krWJmvR3";
-            String bucket = "mogublogforsjf";
-            //...其他参数参考类注释
-            UploadManager uploadManager = new UploadManager(cfg);
-            String key = getUUID();
-            Auth auth = Auth.create(accessKey, secretKey);
-            String upToken = auth.uploadToken(bucket);
-            File localFilePath = new File(ss);
-            Response response = uploadManager.put(localFilePath, key, upToken);
-            //解析上传成功的结果
-            DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
-        }
-    }
-
     @Override
     public void process(Page page) {
         int i = 50;
@@ -205,23 +185,5 @@ public class PictureProcesser implements PageProcessor {
     @Override
     public Site getSite() {
         return Site.me().setCharset("utf8").setRetryTimes(2).setSleepTime(2000).setTimeOut(4000);
-    }
-
-    public String uploadQiniu(File localFilePath) throws QiniuException {
-        //构造一个带指定Zone对象的配置类
-        Configuration cfg = new Configuration(Zone.zone2());
-        //生成上传凭证，然后准备上传
-        String accessKey = "KPTcX6IBYXrR8wpE0VvcUXBu4XkC0XyhquFivGYe";
-        String secretKey = "bQcxUBc_c8evOPKZMxiJ2luHTROcRha3krWJmvR3";
-        String bucket = "mogublogforsjf";
-        //...其他参数参考类注释
-        UploadManager uploadManager = new UploadManager(cfg);
-        String key = getUUID();
-        Auth auth = Auth.create(accessKey, secretKey);
-        String upToken = auth.uploadToken(bucket);
-        Response response = uploadManager.put(localFilePath, key, upToken);
-        //解析上传成功的结果
-        DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
-        return putRet.key;
     }
 }

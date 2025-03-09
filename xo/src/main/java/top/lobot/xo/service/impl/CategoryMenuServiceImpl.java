@@ -12,7 +12,7 @@ import top.lobot.xo.conf.MessageConf;
 import top.lobot.xo.conf.RedisConf;
 import top.lobot.xo.conf.SQLConf;
 import top.lobot.xo.conf.SysConf;
-import top.lobot.xo.mapper.admin.CategoryMenuMapper;
+import top.lobot.xo.mapper.CategoryMenuMapper;
 import top.lobot.xo.service.CategoryMenuService;
 import top.lobot.xo.vo.CategoryMenuVO;
 import top.lobot.base.enums.EMenuType;

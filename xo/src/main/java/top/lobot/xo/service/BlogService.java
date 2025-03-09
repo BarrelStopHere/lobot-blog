@@ -187,7 +187,7 @@ public interface BlogService extends SuperService<Blog> {
      */
     public void deleteRedisByBlog();
 
-    //========================mogu-web使用==========================
+    //========================web使用==========================
 
     /**
      * 通过推荐等级获取博客Page
@@ -217,7 +217,7 @@ public interface BlogService extends SuperService<Blog> {
     public IPage<Blog> getNewBlog(Long currentPage, Long pageSize);
 
     /**
-     * mogu-search调用获取博客的接口[包含内容]
+     * search调用获取博客的接口[包含内容]
      *
      * @param currentPage
      * @param pageSize

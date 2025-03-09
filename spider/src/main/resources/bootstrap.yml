@@ -3,19 +3,19 @@ server:
 
 spring:
   application:
-    name: spider
+    name: mogu-spider
   cloud:
     nacos:
       username: nacos
       password: nacos
 
       discovery:
-        server-addr: 124.222.64.138:8848
-        namespace: dev
+        server-addr: localhost:8848
+        namespace: 726e40f4-8cde-4ed7-bdba-07b4682658e8
       config:
-        server-addr: 124.222.64.138:8848
+        server-addr: localhost:8848
         file-extension: yaml
         #指定分组
         group: dev
         #指定命名空间
-        namespace: dev
+        namespace: 726e40f4-8cde-4ed7-bdba-07b4682658e8

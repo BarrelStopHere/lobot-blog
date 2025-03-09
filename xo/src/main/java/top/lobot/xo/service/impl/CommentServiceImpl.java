@@ -12,7 +12,7 @@ import top.lobot.utils.StringUtils;
 import top.lobot.xo.conf.MessageConf;
 import top.lobot.xo.conf.SQLConf;
 import top.lobot.xo.conf.SysConf;
-import top.lobot.xo.mapper.blog.CommentMapper;
+import top.lobot.xo.mapper.CommentMapper;
 import top.lobot.xo.service.BlogService;
 import top.lobot.xo.service.CommentService;
 import top.lobot.xo.service.UserService;

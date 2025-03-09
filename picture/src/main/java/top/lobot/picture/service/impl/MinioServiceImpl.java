@@ -6,7 +6,7 @@ import top.lobot.picture.service.MinioService;
 import top.lobot.picture.util.MinioUtil;
 import top.lobot.picture.util.MoGuFileUtil;
 import top.lobot.base.exception.exceptionType.InsertException;
-import top.lobot.base.conf.ErrorCode;
+import top.lobot.base.enums.ErrorCode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.entity.ContentType;
 import org.springframework.beans.factory.annotation.Autowired;

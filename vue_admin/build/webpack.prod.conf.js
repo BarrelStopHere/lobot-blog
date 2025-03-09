@@ -55,7 +55,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       template: 'index.html',
       inject: true,
       favicon: resolve('favicon.ico'),
-      title: 'lobot后台管理系统',
+      title: 'lobot云后台管理系统',
       env: getEnv(),
       minify: {
         removeComments: true,

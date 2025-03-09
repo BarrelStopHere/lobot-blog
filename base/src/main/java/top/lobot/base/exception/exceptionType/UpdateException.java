@@ -3,7 +3,7 @@ package top.lobot.base.exception.exceptionType;
 
 
 import top.lobot.base.conf.BaseMessageConf;
-import top.lobot.base.conf.ErrorCode;
+import top.lobot.base.enums.ErrorCode;
 
 import java.io.Serializable;
 

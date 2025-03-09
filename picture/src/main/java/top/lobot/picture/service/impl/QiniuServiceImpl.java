@@ -11,7 +11,7 @@ import top.lobot.picture.util.QiniuUtil;
 import top.lobot.utils.FileUtils;
 import top.lobot.base.exception.exceptionType.InsertException;
 import top.lobot.base.conf.Constants;
-import top.lobot.base.conf.ErrorCode;
+import top.lobot.base.enums.ErrorCode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.entity.ContentType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,7 +104,7 @@ public class QiniuServiceImpl implements QiniuService {
             FileInputStream fileInputStream = new FileInputStream(dest);
             MultipartFile fileData = new MockMultipartFile(dest.getName(), dest.getName(),
                     ContentType.APPLICATION_OCTET_STREAM.toString(), fileInputStream);
-            out = new BufferedOutputStream(new FileOutputStream(dest));
+            out = new BufferedOutputStream(Files.newOutputStream(dest.toPath()));
             out.write(fileData.getBytes());
             QiniuUtil qn = new QiniuUtil();
             // TODO 不关闭流，小图片就无法显示？
@@ -145,7 +146,7 @@ public class QiniuServiceImpl implements QiniuService {
                 dest.getParentFile().mkdirs();
             }
 
-            out = new BufferedOutputStream(new FileOutputStream(dest));
+            out = new BufferedOutputStream(Files.newOutputStream(dest.toPath()));
             out.write(multipartFile.getBytes());
             out.flush();
             out.close();

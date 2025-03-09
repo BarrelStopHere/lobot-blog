@@ -3,7 +3,7 @@ package top.lobot.admin.security;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import top.lobot.base.conf.Constants;
-import top.lobot.base.conf.ECode;
+import top.lobot.base.enums.ECode;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;

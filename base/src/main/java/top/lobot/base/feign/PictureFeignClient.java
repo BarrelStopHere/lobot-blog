@@ -17,8 +17,8 @@ import java.util.List;
  * @author ykr
  * @date 2024/8/2
  */
-@FeignClient(name = "picture", configuration = FeignConfiguration.class, fallback = PictureFeignFallback.class)
-public interface PictureFeignClient {
+    @FeignClient(name = "picture", configuration = FeignConfiguration.class, fallback = PictureFeignFallback.class)
+    public interface PictureFeignClient {
 
     /**
      * 获取文件的信息接口

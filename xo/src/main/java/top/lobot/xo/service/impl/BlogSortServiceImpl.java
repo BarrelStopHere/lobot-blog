@@ -10,7 +10,7 @@ import top.lobot.utils.StringUtils;
 import top.lobot.xo.conf.MessageConf;
 import top.lobot.xo.conf.SQLConf;
 import top.lobot.xo.conf.SysConf;
-import top.lobot.xo.mapper.blog.BlogSortMapper;
+import top.lobot.xo.mapper.BlogSortMapper;
 import top.lobot.xo.service.BlogService;
 import top.lobot.xo.service.BlogSortService;
 import top.lobot.xo.vo.BlogSortVO;

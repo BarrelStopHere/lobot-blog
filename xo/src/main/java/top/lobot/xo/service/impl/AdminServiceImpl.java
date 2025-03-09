@@ -15,7 +15,7 @@ import top.lobot.utils.*;
 import top.lobot.xo.conf.MessageConf;
 import top.lobot.xo.entity.Admin;
 import top.lobot.xo.entity.Role;
-import top.lobot.xo.mapper.admin.AdminMapper;
+import top.lobot.xo.mapper.AdminMapper;
 import top.lobot.xo.utils.WebUtil;
 import top.lobot.xo.conf.RedisConf;
 import top.lobot.xo.conf.SQLConf;

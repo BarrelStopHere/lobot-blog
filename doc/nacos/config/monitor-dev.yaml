@@ -1,0 +1,45 @@
+server:
+  port: 8606
+
+spring:
+  application:
+    name: monitor
+  security:
+    user:
+      name: ykr
+      password: admin998
+  boot:
+    admin:
+      ui:
+        title: lobot博客监控中心
+        brand: lobot博客监控中心
+        username: ykr
+        password: admin998
+      notify:
+        mail:
+          enabled: false
+          # 服务上下线会自动发送邮件
+          #from: 1045607920@qq.com
+          #to: 1045607920@qq.com
+
+  #mail
+#  mail:
+#    username: 1045607920@qq.com
+#    password: Ykr.5201314 #授权码开启SMTP服务里设置
+#    host: smtp.qq.com
+
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            enable: true
+
+  #nacos相关配置
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 124.222.64.138:8848

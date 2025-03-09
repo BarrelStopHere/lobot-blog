@@ -1,7 +1,7 @@
 package top.lobot.xo.service.impl;
 
 import top.lobot.xo.entity.CommentReport;
-import top.lobot.xo.mapper.blog.CommentReportMapper;
+import top.lobot.xo.mapper.CommentReportMapper;
 import top.lobot.xo.service.CommentReportService;
 import top.lobot.base.service.impl.SuperServiceImpl;
 import org.springframework.stereotype.Service;

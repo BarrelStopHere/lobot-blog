@@ -94,19 +94,19 @@ public class SystemConfig extends BaseEntity<SystemConfig> {
     private String contentPicturePriority;
 
     /**
-     * 本地存储图片服务器，域名前缀:   http://localhost:8600
+     * 本地存储图片服务器，域名前缀:
      */
     @TableField(updateStrategy = FieldStrategy.IGNORED)
     private String localPictureBaseUrl;
 
     /**
-     * 七牛云存储图片服务器，域名前缀: http://images.moguit.cn
+     * 七牛云存储图片服务器，域名前缀: http://o.lobot.top
      */
     @TableField(updateStrategy = FieldStrategy.IGNORED)
     private String qiNiuPictureBaseUrl;
 
     /**
-     * Minio服务器文件域名前缀： http://minio.moguit.cn
+     * Minio服务器文件域名前缀：
      */
     @TableField(updateStrategy = FieldStrategy.IGNORED)
     private String minioPictureBaseUrl;

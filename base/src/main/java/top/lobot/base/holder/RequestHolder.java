@@ -7,7 +7,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import top.lobot.base.conf.BaseMessageConf;
 import top.lobot.base.conf.BaseSysConf;
-import top.lobot.base.conf.ErrorCode;
+import top.lobot.base.enums.ErrorCode;
 import top.lobot.base.exception.exceptionType.QueryException;
 import top.lobot.utils.StringUtils;
 

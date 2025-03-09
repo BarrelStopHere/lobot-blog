@@ -8,7 +8,7 @@ import top.lobot.utils.FileUtils;
 import top.lobot.utils.StringUtils;
 import top.lobot.base.exception.exceptionType.InsertException;
 import top.lobot.base.conf.Constants;
-import top.lobot.base.conf.ErrorCode;
+import top.lobot.base.enums.ErrorCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

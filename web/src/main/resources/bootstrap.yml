@@ -11,14 +11,14 @@ spring:
 
       discovery:
         server-addr: 124.222.64.138:8848
-        namespace: dev
+        namespace: 726e40f4-8cde-4ed7-bdba-07b4682658e8
       config:
         server-addr: 124.222.64.138:8848
         file-extension: yaml
         #指定分组
         group: dev
         #指定命名空间
-        namespace: dev
+        namespace: 726e40f4-8cde-4ed7-bdba-07b4682658e8
 
     # 配置Sentinel流控
     sentinel:
@@ -28,26 +28,26 @@ spring:
         #默认8719端口,如果被占用会向上扫描。
         port: 8719
 
-      # sentinel持久化到nacos
-      datasource:
-        flow:
-          nacos:
-            # nacos连接地址
-            server-addr: ${spring.cloud.nacos.discovery.server-addr}
-            # nacos中的配置名称
-            data-id: ${spring.application.name}-flow-rules
-            group-id: DEFAULT_GROUP
-            data-type: json
-            rule-type: flow
-            username: ${spring.cloud.nacos.username}
-            password: ${spring.cloud.nacos.password}
-
-        degrade:
-          nacos:
-            server-addr: ${spring.cloud.nacos.discovery.server-addr}
-            data-id: ${spring.application.name}-degrade-rules
-            group-id: DEFAULT_GROUP
-            data-type: json
-            rule-type: degrade
-            username: ${spring.cloud.nacos.username}
-            password: ${spring.cloud.nacos.password}
+#      # sentinel持久化到nacos
+#      datasource:
+#        flow:
+#          nacos:
+#            # nacos连接地址
+#            server-addr: 124.222.64.138:8848
+#            # nacos中的配置名称
+#            data-id: ${spring.application.name}-flow-rules
+#            group-id: DEFAULT_GROUP
+#            data-type: json
+#            rule-type: flow
+#            username: ${spring.cloud.nacos.username}
+#            password: ${spring.cloud.nacos.password}
+#
+#        degrade:
+#          nacos:
+#            server-addr: ${spring.cloud.nacos.discovery.server-addr}
+#            data-id: ${spring.application.name}-degrade-rules
+#            group-id: DEFAULT_GROUP
+#            data-type: json
+#            rule-type: degrade
+#            username: ${spring.cloud.nacos.username}
+#            password: ${spring.cloud.nacos.password}

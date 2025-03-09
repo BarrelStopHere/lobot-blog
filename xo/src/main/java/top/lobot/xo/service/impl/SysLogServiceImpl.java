@@ -6,7 +6,7 @@ import top.lobot.xo.entity.SysLog;
 import top.lobot.utils.DateUtils;
 import top.lobot.utils.StringUtils;
 import top.lobot.xo.conf.SysConf;
-import top.lobot.xo.mapper.admin.SysLogMapper;
+import top.lobot.xo.mapper.SysLogMapper;
 import top.lobot.xo.service.SysLogService;
 import top.lobot.xo.vo.SysLogVO;
 import top.lobot.base.enums.EStatus;

@@ -14,7 +14,7 @@
 
     <dependencies>
         <dependency>
-            <artifactId>common</artifactId>
+            <artifactId>xo</artifactId>
             <groupId>top.lobot</groupId>
             <version>0.0.1-SNAPSHOT</version>
             <exclusions>
@@ -108,7 +108,7 @@
                 <version>${spring-boot-dependencies.version}</version>
                 <configuration>
                     <!-- 指定该Main Class为全局的唯一入口 -->
-                    <mainClass>com.moxi.mogublog.sms.SmsApplication</mainClass>
+                    <mainClass>top.lobot.sms.SmsApplication</mainClass>
                     <layout>ZIP</layout>
                 </configuration>
                 <executions>
@@ -118,25 +118,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <!--docker镜像build插件-->
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.2.0</version>
-                <configuration>
-                    <!-- 注意imageName一定要是符合正则[a-z0-9-_.]的，否则构建不会成功 -->
-                    <imageName>registry.cn-shenzhen.aliyuncs.com/mogublog/${project.artifactId}</imageName>
-                    <dockerDirectory>${project.basedir}/src/main/resources</dockerDirectory>
-                    <rm>true</rm>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                </configuration>
             </plugin>
         </plugins>
     </build>

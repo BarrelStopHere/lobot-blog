@@ -20,7 +20,7 @@ import top.lobot.base.enums.EOpenStatus;
 import top.lobot.base.enums.EStatus;
 import top.lobot.base.exception.exceptionType.InsertException;
 import top.lobot.base.conf.Constants;
-import top.lobot.base.conf.ErrorCode;
+import top.lobot.base.enums.ErrorCode;
 import top.lobot.base.holder.RequestHolder;
 import top.lobot.base.service.impl.SuperServiceImpl;
 import top.lobot.base.vo.FileVO;
@@ -34,7 +34,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 /**
- *
  * @author ykr
  * @date 2024/8/7
  */
@@ -145,13 +144,13 @@ public class FileServiceImpl extends SuperServiceImpl<FileMapper, File> implemen
 
         // 判断图片来源
         if (SysConf.PICTURE.equals(source)) {
-            // 当从vue-mogu-web网站过来的，直接从参数中获取
+            // 当从vue-web网站过来的，直接从参数中获取
             userUid = request.getParameter(SysConf.USER_UID);
             adminUid = request.getParameter(SysConf.ADMIN_UID);
             projectName = request.getParameter(SysConf.PROJECT_NAME);
             sortName = request.getParameter(SysConf.SORT_NAME);
         } else if (SysConf.ADMIN.equals(source)) {
-            // 当图片从mogu-admin传递过来的时候
+            // 当图片从admin传递过来的时候
             userUid = request.getAttribute(SysConf.USER_UID).toString();
             adminUid = request.getAttribute(SysConf.ADMIN_UID).toString();
             projectName = request.getAttribute(SysConf.PROJECT_NAME).toString();
@@ -180,23 +179,17 @@ public class FileServiceImpl extends SuperServiceImpl<FileMapper, File> implemen
         List<FileSort> fileSorts = fileSortService.list(queryWrapper);
 
         FileSort fileSort = null;
-        if (fileSorts.size() >= 1) {
+        if (!fileSorts.isEmpty()) {
             fileSort = fileSorts.get(0);
         } else {
             return ResultUtil.result(SysConf.ERROR, "文件不被允许上传");
         }
 
         String sortUrl = fileSort.getUrl();
-        //判断url是否为空，如果为空，使用默认
-        if (StringUtils.isEmpty(sortUrl)) {
-            sortUrl = "base/common/";
-        } else {
-            sortUrl = fileSort.getUrl();
-        }
 
         List<File> lists = new ArrayList<>();
         //文件上传
-        if (filedatas != null && filedatas.size() > 0) {
+        if (filedatas != null && !filedatas.isEmpty()) {
             for (MultipartFile filedata : filedatas) {
                 String oldName = filedata.getOriginalFilename();
                 long size = filedata.getSize();
@@ -213,20 +206,19 @@ public class FileServiceImpl extends SuperServiceImpl<FileMapper, File> implemen
                 String qiNiuUrl = "";
                 String minioUrl = "";
                 try {
-                    MultipartFile tempFileData = filedata;
                     // 上传七牛云，判断是否能够上传七牛云
                     if (EOpenStatus.OPEN.equals(uploadQiNiu)) {
-                        qiNiuUrl = qiniuService.uploadFile(tempFileData);
+                        qiNiuUrl = "/" + qiniuService.uploadFile(filedata);
                     }
 
                     // 判断是否能够上传Minio文件服务器
                     if (EOpenStatus.OPEN.equals(uploadMinio)) {
-                        minioUrl = minioService.uploadFile(tempFileData);
+                        minioUrl = "/" + minioService.uploadFile(filedata);
                     }
 
                     // 判断是否能够上传至本地
                     if (EOpenStatus.OPEN.equals(uploadLocal)) {
-                        localUrl = localFileService.uploadFile(filedata, fileSort);
+                        localUrl = "/" + localFileService.uploadFile(filedata, fileSort);
                     }
                 } catch (Exception e) {
                     log.info("上传文件异常: {}", e.getMessage());
@@ -394,19 +386,19 @@ public class FileServiceImpl extends SuperServiceImpl<FileMapper, File> implemen
                         map.put(SysConf.UPLOADED, 1);
                         map.put(SysConf.FILE_NAME, fileName);
                         // 设置博客详情显示方式
-                        if (EFilePriority.QI_NIU.equals(systemConfig.getContentPicturePriority())) {
-                            String qiNiuPictureBaseUrl = systemConfig.getQiNiuPictureBaseUrl();
-                            String qiNiuUrl = picture.get(SysConf.QI_NIU_URL).toString();
-                            map.put(SysConf.URL, qiNiuPictureBaseUrl + qiNiuUrl);
+                        if (EFilePriority.LOCAL.equals(systemConfig.getContentPicturePriority())) {
+                            String localPictureBaseUrl = systemConfig.getLocalPictureBaseUrl();
+                            // 设置图片服务根域名
+                            String url = localPictureBaseUrl + picture.get(SysConf.PIC_URL).toString();
+                            map.put(SysConf.URL, url);
                         } else if (EFilePriority.MINIO.equals(systemConfig.getContentPicturePriority())) {
                             String minioPictureBaseUrl = systemConfig.getMinioPictureBaseUrl();
                             String url = minioPictureBaseUrl + picture.get(SysConf.MINIO_URL).toString();
                             map.put(SysConf.URL, url);
                         } else {
-                            String localPictureBaseUrl = systemConfig.getLocalPictureBaseUrl();
-                            // 设置图片服务根域名
-                            String url = localPictureBaseUrl + picture.get(SysConf.PIC_URL).toString();
-                            map.put(SysConf.URL, url);
+                            String qiNiuPictureBaseUrl = systemConfig.getQiNiuPictureBaseUrl();
+                            String qiNiuUrl = picture.get(SysConf.QI_NIU_URL).toString();
+                            map.put(SysConf.URL, qiNiuPictureBaseUrl + qiNiuUrl);
                         }
                     }
                 } else {

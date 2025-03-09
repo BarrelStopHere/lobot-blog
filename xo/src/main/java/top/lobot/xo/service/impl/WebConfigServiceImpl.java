@@ -19,7 +19,7 @@ import top.lobot.base.enums.EAccountType;
 import top.lobot.base.enums.ELoginType;
 import top.lobot.base.exception.exceptionType.QueryException;
 import top.lobot.base.conf.Constants;
-import top.lobot.base.conf.ErrorCode;
+import top.lobot.base.enums.ErrorCode;
 import top.lobot.base.service.impl.SuperServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

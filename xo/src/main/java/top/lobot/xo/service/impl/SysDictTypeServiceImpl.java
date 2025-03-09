@@ -15,7 +15,7 @@ import top.lobot.utils.StringUtils;
 import top.lobot.xo.conf.MessageConf;
 import top.lobot.xo.conf.SQLConf;
 import top.lobot.xo.conf.SysConf;
-import top.lobot.xo.mapper.admin.SysDictTypeMapper;;
+import top.lobot.xo.mapper.SysDictTypeMapper;;
 import top.lobot.xo.service.SysDictDataService;
 import top.lobot.xo.service.SysDictTypeService;
 import top.lobot.xo.vo.SysDictTypeVO;

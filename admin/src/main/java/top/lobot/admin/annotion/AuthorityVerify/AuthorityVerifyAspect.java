@@ -15,7 +15,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import top.lobot.admin.global.MessageConf;
 import top.lobot.admin.global.SQLConf;
-import top.lobot.base.conf.ECode;
+import top.lobot.base.enums.ECode;
 import top.lobot.base.config.jwt.Audience;
 import top.lobot.base.config.jwt.JwtTokenUtil;
 import top.lobot.base.enums.EMenuType;
@@ -26,14 +26,11 @@ import top.lobot.xo.conf.SysConf;
 import top.lobot.xo.entity.Admin;
 import top.lobot.xo.entity.CategoryMenu;
 import top.lobot.xo.entity.Role;
-import top.lobot.xo.entity.User;
 import top.lobot.xo.service.AdminService;
 import top.lobot.xo.service.CategoryMenuService;
 import top.lobot.xo.service.RoleService;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 

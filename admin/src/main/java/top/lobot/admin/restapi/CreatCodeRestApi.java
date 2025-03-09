@@ -64,7 +64,7 @@ public class CreatCodeRestApi {
         String text =
                 "<html>\r\n" +
                         " <head>\r\n" +
-                        "  <title> mogublog </title>\r\n" +
+                        "  <title> lobot </title>\r\n" +
                         " </head>\r\n" +
                         " <body>\r\n" +
                         "  <div id=\"contentDiv\" onmouseover=\"getTop().stopPropagation(event);\" onclick=\"getTop().preSwapLink(event, 'spam', 'ZC1222-PrLAp4T0Z7Z7UUMYzqLkb8a');\" style=\"position:relative;font-size:14px;height:auto;padding:15px 15px 10px 15px;z-index:1;zoom:1;line-height:1.7;\" class=\"body\">    \r\n" +
@@ -106,7 +106,7 @@ public class CreatCodeRestApi {
             map.put("receiver", info);
             map.put("text", text);
             //发送到RabbitMq
-            rabbitTemplate.convertAndSend("exchange.direct", "mogu.email", map);
+//            rabbitTemplate.convertAndSend("exchange.direct", "lobot.email", map);
         }
         if (CheckUtils.checkMobileNumber(info)) {
             //code是我们申请模板时写的参数
@@ -118,7 +118,7 @@ public class CreatCodeRestApi {
             //短信签名
             map.put("sign_name", signName);
             //发送到RabbitMq
-            rabbitTemplate.convertAndSend("exchange.direct", "mogu.sms", map);
+//            rabbitTemplate.convertAndSend("exchange.direct", "lobot.sms", map);
         }
 
         //存入缓存

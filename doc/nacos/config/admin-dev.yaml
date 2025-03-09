@@ -1,6 +1,7 @@
 server:
   port: 8085
 spring:
+  datasource:
     username: root
     password: 123456
     url: jdbc:mysql://124.222.64.138:3307/admin?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&useSSL=false&serverTimezone=Asia/Shanghai
@@ -41,11 +42,12 @@ spring:
     port: 5672
     username: guest
     password: guest
+    virtual-host: /
 jwt:
   tokenHeader: Authorization #JWT存储的请求头
   expiresSecond: 604800 #token过期的时间
   refreshSecond: 3600 #token刷新的时间
-  tokenHead: Bearer  #JWT负载中拿到开头
+  tokenHead: Barrel  #JWT负载中拿到开头
 log:
   thread:
     corePoolSize: 2
@@ -54,7 +56,7 @@ log:
 templateCode:
 signName:
 email:
-tokenHead: admin
+tokenHead: Barrel
 # 一周免登录
 isRememberMeExpiresSecond: 604800
 #邮件配置
@@ -66,3 +68,8 @@ data:
     logo: _.jpg
   website:
     url: lobot.top
+audience:
+  expiresSecond: 3600
+  clientId: 0954693eb7ebaa0b693d3c787fb8bab7
+  name: lobotblog
+  base64Secret: MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY=

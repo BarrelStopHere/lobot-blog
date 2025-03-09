@@ -99,7 +99,7 @@ public class BaseSysConf {
     public final static String EDIT_BATCH = "editBatch";
     public final static String DELETE_ALL = "deleteAll";
     public final static String EXCHANGE_DIRECT = "exchange.direct";
-    public final static String MOGU_BLOG = "mogu.blog";
+    public final static String LOBOT_BLOG = "lobot.blog";
 
     /**
      * redis相关

@@ -8,7 +8,6 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
-const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -59,8 +58,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       inject: true,
       favicon: resolve('favicon.ico'),
       title: 'vue-admin-template'
-    }),
-    new VueLoaderPlugin(),
+    })
   ]
 })
 
@@ -95,4 +93,3 @@ module.exports = new Promise((resolve, reject) => {
     }
   })
 })
-

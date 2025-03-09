@@ -6,7 +6,7 @@
     <artifactId>lobot-blog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>lobot_blog</name>
+    <name>lobot-blog</name>
     <description>a blog web</description>
 
     <properties>
@@ -52,15 +52,16 @@
 
 
     <modules>
+        <module>admin</module>
         <module>utils</module>
         <module>base</module>
         <module>web</module>
         <module>gateway</module>
         <module>monitor</module>
         <module>picture</module>
-        <module>search</module>
-        <module>sms</module>
-        <module>spider</module>
+<!--        <module>search</module>-->
+<!--        <module>sms</module>-->
+<!--        <module>spider</module>-->
         <module>xo</module>
     </modules>
 

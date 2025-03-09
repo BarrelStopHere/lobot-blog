@@ -9,13 +9,13 @@ import top.lobot.xo.conf.MessageConf;
 import top.lobot.xo.conf.RedisConf;
 import top.lobot.xo.conf.SQLConf;
 import top.lobot.xo.conf.SysConf;
-import top.lobot.xo.mapper.admin.SysParamsMapper;
+import top.lobot.xo.mapper.SysParamsMapper;
 import top.lobot.xo.service.SysParamsService;
 import top.lobot.xo.vo.SysParamsVO;
 import top.lobot.base.enums.EStatus;
 import top.lobot.base.exception.exceptionType.QueryException;
 import top.lobot.base.conf.Constants;
-import top.lobot.base.conf.ErrorCode;
+import top.lobot.base.enums.ErrorCode;
 import top.lobot.base.service.impl.SuperServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,7 +58,7 @@ public class SysParamsServiceImpl extends SuperServiceImpl<SysParamsMapper, SysP
         // 如果Redis中不存在，那么从数据库中获取
         if (StringUtils.isEmpty(paramsValue)) {
             SysParams sysParams = sysParamsService.getSysParamsByKey(paramsKey);
-            // 如果数据库也不存在，将抛出异常【需要到找到 doc/数据库脚本 更新数据库中的 t_sys_params表】
+            // 如果数据库也不存在，将抛出异常【需要到找到 doc/数据库脚本 更新数据库中的 sys_params表】
             if (sysParams == null || StringUtils.isEmpty(sysParams.getParamsValue())) {
                 throw new QueryException(ErrorCode.PLEASE_CONFIGURE_SYSTEM_PARAMS, MessageConf.PLEASE_CONFIGURE_SYSTEM_PARAMS);
             }

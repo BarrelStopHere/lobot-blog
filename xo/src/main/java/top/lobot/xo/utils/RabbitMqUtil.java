@@ -60,7 +60,7 @@ public class RabbitMqUtil {
         result.put(SysConf.RECEIVER, email);
         result.put(SysConf.TEXT, text);
         //发送到RabbitMq
-        rabbitTemplate.convertAndSend(EXCHANGE_DIRECT, ROUTING_KEY_EMAIL, result);
+//        rabbitTemplate.convertAndSend(EXCHANGE_DIRECT, ROUTING_KEY_EMAIL, result);
     }
 
     /**

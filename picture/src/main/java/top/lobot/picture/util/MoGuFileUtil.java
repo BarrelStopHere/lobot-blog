@@ -169,20 +169,4 @@ public class MoGuFileUtil {
         return multipartFile;
     }
 
-    public static void main(String[] args) {
-        // 删除单个文件
-        String file = "D:\\mogu_blog\\data\\blog\\admin\\webp\\2020\\6\\15\\123.txt";
-        MoGuFileUtil.deleteFile(file);
-        System.out.println();
-
-        // 删除一个目录
-//        String dir = "D:/home/web/upload/upload/files";
-//        MoGuFileUtil.deleteDirectory(dir);
-
-        //  System.out.println();
-        //  // 删除文件
-        //  dir = "c:/test/test0";
-        //  DeleteFileUtil.delete(dir);
-
-    }
 }

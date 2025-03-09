@@ -10,7 +10,7 @@ import top.lobot.xo.conf.MessageConf;
 import top.lobot.xo.conf.RedisConf;
 import top.lobot.xo.conf.SQLConf;
 import top.lobot.xo.conf.SysConf;
-import top.lobot.xo.mapper.admin.SystemConfigMapper;
+import top.lobot.xo.mapper.SystemConfigMapper;
 import top.lobot.xo.service.BlogService;
 import top.lobot.xo.service.SystemConfigService;
 import top.lobot.xo.vo.SystemConfigVO;
@@ -19,7 +19,7 @@ import top.lobot.base.enums.EOpenStatus;
 import top.lobot.base.enums.EStatus;
 import top.lobot.base.exception.exceptionType.QueryException;
 import top.lobot.base.conf.Constants;
-import top.lobot.base.conf.ErrorCode;
+import top.lobot.base.enums.ErrorCode;
 import top.lobot.base.service.impl.SuperServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -27,6 +27,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -41,8 +42,6 @@ import java.util.concurrent.TimeUnit;
 public class SystemConfigServiceImpl extends SuperServiceImpl<SystemConfigMapper, SystemConfig> implements SystemConfigService {
 
     @Autowired
-    private SystemConfigService systemConfigService;
-    @Autowired
     private BlogService blogService;
     @Autowired
     private RedisUtil redisUtil;
@@ -56,7 +55,7 @@ public class SystemConfigServiceImpl extends SuperServiceImpl<SystemConfigMapper
             queryWrapper.orderByDesc(SQLConf.CREATE_TIME);
             queryWrapper.eq(SQLConf.STATUS, EStatus.ENABLE);
             queryWrapper.last(SysConf.LIMIT_ONE);
-            SystemConfig systemConfig = systemConfigService.getOne(queryWrapper);
+            SystemConfig systemConfig = getOne(queryWrapper);
             if (systemConfig == null) {
                 throw new QueryException(MessageConf.SYSTEM_CONFIG_IS_NOT_EXIST);
             } else {
@@ -127,10 +126,10 @@ public class SystemConfigServiceImpl extends SuperServiceImpl<SystemConfigMapper
             BeanUtils.copyProperties(systemConfigVO, systemConfig, SysConf.STATUS);
             systemConfig.insert();
         } else {
-            SystemConfig systemConfig = systemConfigService.getById(systemConfigVO.getUid());
+            SystemConfig systemConfig = getById(systemConfigVO.getUid());
 
             // 判断是否更新了图片显示优先级【如果更新了，需要请求Redis中的博客，否者将导致图片无法正常显示】
-            if(systemConfigVO.getPicturePriority() != systemConfig.getPicturePriority()) {
+            if(!Objects.equals(systemConfigVO.getPicturePriority(), systemConfig.getPicturePriority())) {
                 blogService.deleteRedisByBlog();
             }
 

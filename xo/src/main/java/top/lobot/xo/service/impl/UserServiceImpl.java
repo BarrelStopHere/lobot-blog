@@ -10,7 +10,7 @@ import top.lobot.xo.conf.MessageConf;
 import top.lobot.xo.conf.RedisConf;
 import top.lobot.xo.conf.SQLConf;
 import top.lobot.xo.conf.SysConf;
-import top.lobot.xo.mapper.user.UserMapper;
+import top.lobot.xo.mapper.UserMapper;
 import top.lobot.xo.service.SysParamsService;
 import top.lobot.xo.service.UserService;
 import top.lobot.xo.utils.WebUtil;
@@ -19,7 +19,7 @@ import top.lobot.base.enums.EStatus;
 import top.lobot.base.exception.exceptionType.InsertException;
 import top.lobot.base.conf.BaseSQLConf;
 import top.lobot.base.conf.Constants;
-import top.lobot.base.conf.ErrorCode;
+import top.lobot.base.enums.ErrorCode;
 import top.lobot.base.holder.RequestHolder;
 import top.lobot.base.service.impl.SuperServiceImpl;
 import org.springframework.beans.BeanUtils;
@@ -227,7 +227,7 @@ public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implemen
         BeanUtils.copyProperties(userVO, user, SysConf.STATUS);
         String defaultPassword = sysParamsService.getSysParamsValueByKey(SysConf.SYS_DEFAULT_PASSWORD);
         user.setPassWord(MD5Utils.string2MD5(defaultPassword));
-        user.setSource("MOGU");
+        user.setSource("LOBOT");
         user.insert();
         return ResultUtil.successWithMessage(MessageConf.INSERT_SUCCESS);
     }
